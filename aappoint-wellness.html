@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AAppoint Wellness — 試試預約。再開設您自己的養生品牌。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;
+  --bg-soft:#fafafb;
+  --ink:#0b0d1a;
+  --ink-2:#3b3f55;
+  --muted:#8a90a4;
+  --line:#ececf2;
+  --card:#ffffff;
+  --pink:#EC1A78;
+  --pink-soft:#fde6f0;
+  --pink-tint:#fff5f9;
+  --teal:#14787C;
+  --teal-2:#1AAEA8;
+  --teal-soft:#e6f6f5;
+  --teal-tint:#f4fbfa;
+  --shadow: 0 10px 30px rgba(11,13,26,.06);
+  --shadow-lg: 0 30px 80px rgba(11,13,26,.16);
+  --radius:18px;
+  --radius-lg:28px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);}
+body{font-family:"Inter","Noto Sans TC","IBM Plex Sans Thai",system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+html[lang="th"] body{font-family:"IBM Plex Sans Thai","Inter",system-ui,sans-serif;}
+html[lang="zh-TW"] body{font-family:"Noto Sans TC","Inter",system-ui,sans-serif;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* LOGO — Wellness wordmark uses thinner weight with pink "ll" bars per 2026 CI */
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-icon{width:38px;height:auto;flex-shrink:0;}
+.wordmark{font-weight:600;font-size:22px;letter-spacing:-.01em;color:var(--teal);line-height:1;}
+.wordmark .pink{color:var(--pink);font-weight:700;}
+.wordmark .parent{display:block;font-size:10px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.22em;margin-top:3px;line-height:1;}
+.wordmark .parent .dot-i{position:relative;}
+.wordmark .parent .dot-i::before{
+  content:""; position:absolute;
+  top:-0.05em; left:50%; transform:translateX(-50%);
+  width:0.32em; height:0.32em;
+  background:var(--pink); border-radius:50%;
+}
+
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(14px);background:rgba(255,255,255,.78);border-bottom:1px solid var(--line);}
+.nav-inner{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:24px;}
+.nav-links{display:flex;gap:6px;margin-left:auto;}
+.nav-links a{padding:8px 14px;border-radius:10px;color:var(--ink-2);font-weight:500;font-size:14.5px;}
+.nav-links a:hover{background:#f4f4f8;color:var(--ink);}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:4px;background:#fff;}
+.lang button{padding:6px 12px;border-radius:999px;font-size:12.5px;font-weight:600;color:var(--muted);}
+.lang button.on{background:var(--ink);color:#fff;}
+.cta-top{background:var(--pink);color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14.5px;}
+.cta-top:hover{background:#d10c66;}
+
+.hero{position:relative;overflow:hidden;padding:64px 24px 80px;}
+.hero-bg{position:absolute;inset:0;z-index:0;background:
+  radial-gradient(circle at 12% 0%, rgba(20,120,124,.18), transparent 45%),
+  radial-gradient(circle at 92% 18%, rgba(236,26,120,.16), transparent 50%),
+  radial-gradient(circle at 50% 110%, rgba(20,120,124,.08), transparent 60%);}
+.hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+.kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:12.5px;font-weight:600;color:var(--ink-2);box-shadow:var(--shadow);}
+.kicker .pulse{width:7px;height:7px;border-radius:50%;background:var(--teal-2);box-shadow:0 0 0 4px rgba(26,174,168,.25);}
+.brand-tagline{font-size:11.5px;text-transform:uppercase;letter-spacing:.22em;color:var(--teal);font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.brand-tagline::before, .brand-tagline::after{content:"";flex:0 0 24px;height:1.5px;background:linear-gradient(90deg,transparent,var(--teal));}
+.brand-tagline::after{background:linear-gradient(90deg,var(--teal),transparent);}
+h1.hero-title{font-size:clamp(34px,5.2vw,60px);line-height:1.05;letter-spacing:-.025em;font-weight:800;margin:18px 0 16px;}
+h1 .accent{color:var(--pink);}
+h1 .underline{background:linear-gradient(transparent 62%, rgba(20,120,124,.25) 62%);padding:0 4px;}
+.hero-sub{font-size:18px;color:var(--ink-2);max-width:540px;margin:0 0 28px;}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:14px;font-weight:600;font-size:15.5px;transition:transform .15s, box-shadow .2s, background .2s;}
+.btn-primary{background:var(--pink);color:#fff;box-shadow:0 12px 28px rgba(236,26,120,.32);}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 16px 32px rgba(236,26,120,.4);background:#d10c66;}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line);}
+.btn-ghost:hover{border-color:var(--ink);}
+.btn-teal{background:var(--teal);color:#fff;box-shadow:0 12px 28px rgba(20,120,124,.30);}
+.btn-teal:hover{background:#0e5e62;}
+.hero-meta{display:flex;gap:22px;margin-top:28px;color:var(--muted);font-size:13.5px;flex-wrap:wrap;}
+.hero-meta b{color:var(--ink);font-weight:700;}
+
+.phone-wrap{position:relative;display:flex;justify-content:center;}
+.phone{width:320px;height:640px;border-radius:42px;background:#0b0d1a;padding:14px;box-shadow:var(--shadow-lg);position:relative;}
+.phone::before{content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);width:120px;height:26px;background:#000;border-radius:20px;z-index:2;}
+.phone-screen{width:100%;height:100%;background:#fff;border-radius:30px;overflow:hidden;display:flex;flex-direction:column;}
+.ps-top{background:linear-gradient(135deg,#1AAEA8,#14787C);padding:42px 18px 16px;color:#fff;}
+.ps-top .small{font-size:11px;opacity:.9;}
+.ps-top h4{margin:4px 0 0;font-size:18px;font-weight:700;}
+.ps-search{margin-top:12px;background:rgba(255,255,255,.22);border-radius:12px;padding:10px 12px;font-size:13px;display:flex;gap:8px;align-items:center;color:#fff;}
+.ps-list{padding:14px;display:flex;flex-direction:column;gap:10px;overflow:hidden;}
+.ps-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;gap:10px;align-items:center;}
+.ps-thumb{width:48px;height:48px;border-radius:10px;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.ps-card h5{margin:0;font-size:13.5px;font-weight:700;}
+.ps-card p{margin:2px 0 0;font-size:11.5px;color:var(--muted);}
+.ps-tag{margin-left:auto;font-size:10.5px;background:var(--pink-soft);color:var(--pink);font-weight:700;padding:4px 8px;border-radius:6px;}
+.float-badge{position:absolute;background:#fff;border-radius:14px;padding:10px 14px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;}
+.fb-1{top:40px;left:-40px;}
+.fb-2{bottom:80px;right:-30px;}
+.fb-icon{width:28px;height:28px;border-radius:8px;background:var(--pink-soft);color:var(--pink);display:flex;align-items:center;justify-content:center;font-weight:800;}
+.fb-icon.green{background:var(--teal-soft);color:var(--teal);}
+@media (max-width: 960px){.hero-inner{grid-template-columns:1fr;gap:40px;} .phone{transform:scale(.85);} .float-badge{display:none;}}
+
+.pillars{max-width:1200px;margin:0 auto;padding:0 24px 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.pillar{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;gap:14px;align-items:flex-start;}
+.pillar-ico{width:44px;height:44px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;}
+.pillar:nth-child(1) .pillar-ico{background:var(--pink-soft);color:var(--pink);}
+.pillar:nth-child(2) .pillar-ico{background:var(--teal-soft);color:var(--teal);}
+.pillar:nth-child(3) .pillar-ico{background:var(--pink-soft);color:var(--pink);}
+.pillar h3{margin:0 0 4px;font-size:17px;font-weight:700;}
+.pillar p{margin:0;font-size:14px;color:var(--ink-2);}
+@media (max-width:800px){.pillars{grid-template-columns:1fr;}}
+
+.demo-section{max-width:1200px;margin:48px auto 0;padding:48px 24px 80px;}
+.section-head{text-align:center;max-width:720px;margin:0 auto 32px;}
+.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:11.5px;font-weight:700;color:var(--pink);}
+.section-head h2{font-size:clamp(28px,3.6vw,42px);line-height:1.15;letter-spacing:-.02em;font-weight:800;margin:8px 0 12px;}
+.section-head p{font-size:17px;color:var(--ink-2);margin:0;}
+.demo-stage{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);overflow:hidden;display:grid;grid-template-columns:280px 1fr;min-height:560px;}
+.demo-rail{background:#0b0d1a;color:#fff;padding:28px 24px;display:flex;flex-direction:column;gap:16px;}
+.demo-rail-title{font-size:13px;text-transform:uppercase;letter-spacing:.16em;color:#7c84a3;font-weight:700;}
+.steps{display:flex;flex-direction:column;gap:6px;margin-top:8px;}
+.step{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;border:1px solid transparent;transition:all .2s;opacity:.55;}
+.step.on{background:#161628;border-color:#272746;opacity:1;}
+.step.done{opacity:1;}
+.step-num{width:26px;height:26px;border-radius:50%;background:#22243f;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
+.step.on .step-num{background:var(--pink);}
+.step.done .step-num{background:var(--teal-2);}
+.step h5{margin:0;font-size:14px;font-weight:700;}
+.step p{margin:2px 0 0;font-size:12.5px;color:#a1a8c5;}
+.rail-foot{margin-top:auto;padding:14px;background:#161628;border-radius:12px;font-size:12.5px;color:#a1a8c5;}
+.rail-foot b{color:#fff;}
+.demo-pane{padding:36px 40px;position:relative;overflow:hidden;}
+.pane{display:none;animation:fadeIn .35s ease;}
+.pane.on{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+.pane h3{font-size:24px;font-weight:800;letter-spacing:-.01em;margin:0 0 6px;}
+.pane .sub{color:var(--ink-2);margin:0 0 22px;font-size:15px;}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.field label{font-size:13px;font-weight:600;color:var(--ink-2);}
+.field input,.field select{padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;background:#fff;color:var(--ink);transition:border-color .15s;font-family:inherit;}
+.field input:focus,.field select:focus{outline:none;border-color:var(--pink);}
+.row-2{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;}
+.suggestion-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font-size:12.5px;color:var(--ink-2);cursor:pointer;transition:all .15s;}
+.chip:hover{border-color:var(--pink);color:var(--pink);}
+.search-actions{display:flex;gap:10px;margin-top:8px;}
+.loading{display:flex;align-items:center;gap:14px;padding:24px;background:#f8f9fc;border-radius:14px;}
+.spinner{width:24px;height:24px;border:3px solid #e3e7f3;border-top-color:var(--pink);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.venue-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;display:grid;grid-template-columns:180px 1fr;gap:0;}
+.venue-photo{background:linear-gradient(135deg,#1AAEA8,#14787C);min-height:180px;display:flex;align-items:center;justify-content:center;font-size:64px;color:#fff;}
+.venue-body{padding:20px;}
+.venue-body h4{margin:0 0 4px;font-size:20px;font-weight:800;}
+.venue-meta{display:flex;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--muted);margin-bottom:10px;}
+.venue-meta span{display:inline-flex;align-items:center;gap:6px;}
+.venue-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.venue-pill{background:var(--teal-soft);color:var(--teal);font-size:12px;font-weight:600;padding:4px 10px;border-radius:8px;}
+.venue-pill.api{background:var(--pink-soft);color:var(--pink);}
+.places-attr{font-size:11px;color:var(--muted);margin-top:8px;display:flex;align-items:center;gap:6px;}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;}
+.book-card{border:1px solid var(--line);border-radius:14px;padding:18px;}
+.book-card h5{margin:0 0 12px;font-size:14px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;}
+.dates{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.date-btn{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:10px 6px;text-align:center;cursor:pointer;transition:all .15s;}
+.date-btn .dow{font-size:11px;color:var(--muted);font-weight:600;}
+.date-btn .day{font-size:18px;font-weight:800;color:var(--ink);}
+.date-btn:hover{border-color:var(--pink);}
+.date-btn.on{background:var(--pink);border-color:var(--pink);}
+.date-btn.on .dow,.date-btn.on .day{color:#fff;}
+.times{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.time-btn{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:10px;font-weight:600;font-size:13.5px;cursor:pointer;transition:all .15s;}
+.time-btn:hover{border-color:var(--pink);color:var(--pink);}
+.time-btn.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+.time-btn.full{opacity:.4;cursor:not-allowed;text-decoration:line-through;}
+.svc-row{display:flex;gap:6px;flex-wrap:wrap;}
+.svc-btn{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:8px 14px;font-weight:600;font-size:13px;cursor:pointer;transition:all .15s;}
+.svc-btn.on{background:var(--teal);color:#fff;border-color:var(--teal);}
+@media (max-width:800px){.demo-stage{grid-template-columns:1fr;}.demo-rail{padding:20px;}.demo-pane{padding:24px;}.venue-card{grid-template-columns:1fr;}.venue-photo{min-height:140px;}.book-grid{grid-template-columns:1fr;}.row-2{grid-template-columns:1fr;}}
+.confirm-box{background:linear-gradient(135deg,var(--teal-soft),var(--pink-soft));border-radius:18px;padding:32px;text-align:center;}
+.confirm-check{width:64px;height:64px;background:var(--teal);color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:14px;box-shadow:0 12px 24px rgba(20,120,124,.35);}
+.confirm-box h3{margin:0 0 6px;font-size:24px;}
+.confirm-box p{margin:0 0 18px;color:var(--ink-2);}
+.summary{background:#fff;border-radius:14px;padding:18px;text-align:left;margin:0 auto 18px;max-width:380px;border:1px solid var(--line);}
+.summary div{display:flex;justify-content:space-between;padding:6px 0;font-size:14px;border-bottom:1px dashed var(--line);}
+.summary div:last-child{border-bottom:none;font-weight:700;}
+.flip-card{margin-top:28px;background:var(--ink);color:#fff;border-radius:18px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;position:relative;overflow:hidden;}
+.flip-card::before{content:"";position:absolute;width:300px;height:300px;background:radial-gradient(circle, rgba(20,120,124,.45), transparent 60%);top:-100px;right:-80px;}
+.flip-card h4{margin:0 0 6px;font-size:22px;font-weight:800;letter-spacing:-.01em;position:relative;}
+.flip-card p{margin:0;color:#bcc1d6;max-width:520px;position:relative;font-size:14.5px;}
+.flip-card .btn{position:relative;}
+
+.how{max-width:1200px;margin:80px auto;padding:0 24px;}
+.how-tabs{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px;margin:0 auto 32px;}
+.how-tab{padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;color:var(--muted);}
+.how-tab.on{background:var(--ink);color:#fff;}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.how-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
+.how-card .num{width:36px;height:36px;border-radius:10px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;margin-bottom:14px;}
+.how-card h4{margin:0 0 6px;font-size:17px;font-weight:700;}
+.how-card p{margin:0;font-size:14px;color:var(--ink-2);}
+@media (max-width:800px){.how-grid{grid-template-columns:1fr;}}
+
+/* WELLNESS-SPECIFIC: vertical category grid */
+.verticals{max-width:1200px;margin:0 auto 80px;padding:0 24px;}
+.vert-head{text-align:center;margin-bottom:32px;}
+.vert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.vert-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center;transition:all .2s;cursor:pointer;}
+.vert-card:hover{border-color:var(--pink);transform:translateY(-2px);box-shadow:var(--shadow);}
+.vert-emoji{font-size:36px;margin-bottom:10px;}
+.vert-card h4{margin:0 0 4px;font-size:15px;font-weight:700;}
+.vert-card p{margin:0;font-size:12.5px;color:var(--muted);}
+@media (max-width:760px){.vert-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* ============== VOTE / WISHLIST ============== */
+.vote{max-width:1200px;margin:80px auto;padding:0 24px;}
+.vote-head{text-align:center;max-width:680px;margin:0 auto 28px;}
+.vote-head h2{font-size:clamp(28px,3.4vw,40px);margin:8px 0 12px;letter-spacing:-.02em;font-weight:800;}
+.vote-head p{margin:0;color:var(--ink-2);font-size:15.5px;line-height:1.55;}
+.vote-search{
+  display:flex;gap:8px;max-width:560px;margin:0 auto 28px;
+  background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:6px;
+  box-shadow:var(--shadow);transition:border-color .15s ease;
+}
+.vote-search:focus-within{border-color:var(--pink);}
+.vote-search input{flex:1;padding:12px 16px;border:none;background:transparent;font-size:15px;font-family:inherit;color:var(--ink);}
+.vote-search input:focus{outline:none;}
+.vote-search button{background:var(--pink);color:#fff;border:none;padding:0 22px;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;}
+.vote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.vote-card{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:18px;display:flex;align-items:center;gap:14px;transition:all .2s ease;}
+.vote-card:hover{border-color:var(--pink);}
+.vote-card.voted{border-color:var(--teal);background:var(--teal-tint);}
+.vote-card.live{background:linear-gradient(135deg,var(--teal-tint) 0%,#fff 80%);border-color:var(--teal-2);}
+.vote-emoji{font-size:36px;flex-shrink:0;line-height:1;}
+.vote-info{flex:1;min-width:0;}
+.vote-info h5{margin:0 0 2px;font-size:15px;font-weight:800;letter-spacing:-.005em;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.vote-info .area{font-size:12px;color:var(--muted);margin-bottom:6px;}
+.vote-count{font-size:11.5px;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.vote-count .digits{background:var(--pink-soft);color:var(--pink);font-weight:800;padding:2px 8px;border-radius:6px;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:11.5px;letter-spacing:.04em;}
+.live-pill{display:inline-flex;align-items:center;gap:3px;background:var(--teal);color:#fff;font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:999px;line-height:1.4;}
+.live-msg{font-size:12px;color:var(--teal);font-weight:700;}
+.vote-btn{background:var(--pink);color:#fff;border:none;padding:10px 16px;border-radius:10px;font-weight:700;font-size:13.5px;cursor:pointer;transition:all .15s ease;flex-shrink:0;display:inline-flex;align-items:center;gap:6px;text-decoration:none;}
+.vote-btn:hover{background:#d10c66;}
+.vote-card.voted .vote-btn{background:var(--teal);cursor:default;}
+.vote-card.live .vote-btn{background:var(--teal);}
+.vote-card.live .vote-btn:hover{background:#0e5e62;}
+
+.vote-foot{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;}
+.vote-explain,.vote-merchant{background:var(--bg-soft);border:1px solid var(--line);border-radius:18px;padding:22px;}
+.vote-explain h4,.vote-merchant h4{margin:0 0 8px;font-size:15px;font-weight:800;letter-spacing:-.005em;}
+.vote-explain ol{padding-left:20px;margin:0;color:var(--ink-2);font-size:13px;line-height:1.6;}
+.vote-explain li{margin-bottom:4px;}
+.vote-merchant{background:linear-gradient(135deg,var(--pink-soft) 0%,var(--teal-soft) 100%);}
+.vote-merchant p{margin:0 0 14px;color:var(--ink-2);font-size:13.5px;line-height:1.55;}
+
+.vote-toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,140px);background:var(--ink);color:#fff;padding:14px 20px;border-radius:14px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow-lg);z-index:200;transition:transform .35s cubic-bezier(.2,.9,.3,1.2);max-width:92%;font-size:13.5px;}
+.vote-toast.show{transform:translate(-50%,0);}
+.vote-toast .toast-check{width:30px;height:30px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+.vote-toast small{display:block;color:#bcc1d6;font-size:11.5px;margin-top:1px;}
+
+.vote-modal{position:fixed;inset:0;z-index:300;background:rgba(11,13,26,.72);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;transition:opacity .2s ease;}
+.vote-modal.show{display:flex;opacity:1;}
+.modal-shell{background:#fff;border-radius:20px;overflow:hidden;width:100%;max-width:1100px;height:86vh;max-height:760px;display:flex;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.4);transform:translateY(20px);transition:transform .25s cubic-bezier(.2,.9,.3,1.2);}
+.vote-modal.show .modal-shell{transform:translateY(0);}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 18px;border-bottom:1px solid var(--line);background:#fff;flex-shrink:0;}
+.modal-head-l{display:flex;align-items:center;gap:12px;min-width:0;}
+.modal-icon{width:36px;height:36px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,var(--pink),var(--teal));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;}
+.modal-head h4{margin:0;font-size:15px;font-weight:800;letter-spacing:-.005em;}
+.modal-sub{font-size:12px;color:var(--muted);margin-top:1px;}
+.modal-close{width:36px;height:36px;border-radius:50%;flex-shrink:0;background:#f4f4f8;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;border:none;font-family:inherit;}
+.modal-close:hover{background:#e6e6ec;}
+.modal-body{flex:1;position:relative;background:#fafafb;overflow:hidden;}
+.modal-iframe{position:absolute;inset:0;width:100%;height:100%;border:none;background:#fff;}
+.modal-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:linear-gradient(135deg,var(--pink-soft),var(--teal-soft));pointer-events:none;opacity:0;transition:opacity .3s ease;}
+.modal-fallback.show{opacity:1;pointer-events:auto;}
+.modal-fallback h5{margin:0 0 8px;font-size:18px;font-weight:800;}
+.modal-fallback p{margin:0 0 18px;color:var(--ink-2);font-size:14px;max-width:420px;}
+.modal-foot{padding:10px 18px;border-top:1px solid var(--line);background:#fff;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;flex-shrink:0;}
+.modal-foot a{color:var(--teal);font-weight:600;}
+.modal-foot a:hover{text-decoration:underline;}
+@media(max-width:600px){.modal-shell{height:92vh;border-radius:14px;} .modal-head{padding:12px 14px;}}
+
+@media(max-width:900px){.vote-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.vote-grid{grid-template-columns:1fr;}.vote-foot{grid-template-columns:1fr;}}
+
+/* ============== E-PAYMENT / DISTRIBUTION ============== */
+.channels{max-width:1200px;margin:0 auto 80px;padding:0 24px;}
+.channels-head{text-align:center;max-width:720px;margin:0 auto 36px;}
+.channels-head h2{font-size:clamp(28px,3.4vw,40px);margin:8px 0 12px;letter-spacing:-.02em;font-weight:800;}
+.channels-head p{margin:0;color:var(--ink-2);font-size:16px;}
+.channel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.channel-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:8px;position:relative;transition:all .2s ease;}
+.channel-card:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:var(--shadow);}
+.channel-card .ch-logo{
+  width:44px;height:44px;border-radius:10px;background:var(--teal-soft);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:14px;color:var(--teal);margin-bottom:10px;
+}
+.channel-card.octopus .ch-logo{background:#feeae0;color:#d35400;}
+.channel-card.alipay .ch-logo{background:#e8f4ff;color:#1677ff;}
+.channel-card.wechat .ch-logo{background:#e8f5e9;color:#07c160;}
+.channel-card.google .ch-logo{background:#e8f0fe;color:#1a73e8;}
+.channel-card.klook .ch-logo{background:#fff4e0;color:#ff5b00;}
+.channel-card h4{margin:0;font-size:16px;font-weight:800;letter-spacing:-.01em;}
+.channel-card p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.5;flex:1;}
+.channel-card .ch-pill{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px;}
+.channel-card .ch-pill.featured{color:var(--teal);}
+@media(max-width:900px){.channel-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.channel-grid{grid-template-columns:1fr;}}
+
+/* ============== PRICING (4-TIER) ============== */
+.pricing{max-width:1200px;margin:0 auto 80px;padding:56px 24px;background:linear-gradient(135deg,var(--teal-soft) 0%,var(--pink-soft) 100%);border-radius:var(--radius-lg);}
+.pricing-head{text-align:center;max-width:680px;margin:0 auto 36px;}
+.pricing-head h2{font-size:clamp(28px,3.4vw,40px);margin:8px 0 12px;letter-spacing:-.02em;font-weight:800;}
+.pricing-head p{margin:0;color:var(--ink-2);font-size:16px;}
+.tier-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:840px;margin:0 auto;}
+.tier{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;display:flex;flex-direction:column;position:relative;transition:transform .2s ease, box-shadow .2s ease;}
+.tier.featured{border-color:var(--teal);border-width:2px;box-shadow:0 24px 60px rgba(20,120,124,.22);transform:scale(1.03);}
+.tier-flag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:999px;white-space:nowrap;}
+.tier-name{font-size:14px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;}
+.tier-price{font-size:46px;font-weight:800;letter-spacing:-.02em;color:var(--ink);margin:10px 0 2px;line-height:1;}
+.tier-price small{font-size:16px;color:var(--muted);font-weight:600;letter-spacing:0;}
+.tier-usd{font-size:13px;color:var(--teal);font-weight:700;margin-bottom:6px;}
+.tier-bill{font-size:11.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-bottom:18px;}
+.tier ul{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px;flex:1;}
+.tier li{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--ink-2);line-height:1.45;}
+.tier li::before{content:"✓";color:var(--teal);font-weight:800;flex-shrink:0;}
+.tier .tier-cta{padding:12px 16px;border-radius:12px;background:#f4f4f8;color:var(--ink);font-weight:700;font-size:14.5px;text-align:center;border:1px solid var(--line);}
+.tier.featured .tier-cta{background:var(--pink);color:#fff;border-color:var(--pink);}
+.pricing-foot{text-align:center;margin-top:30px;color:var(--ink-2);font-size:13.5px;line-height:1.6;}
+.pricing-foot b{color:var(--ink);font-weight:700;}
+@media(max-width:680px){.tier-grid{grid-template-columns:1fr;} .tier.featured{transform:none;}}
+
+.cross-sell{max-width:1200px;margin:0 auto 80px;padding:0 24px;}
+.cross-card{background:linear-gradient(135deg,var(--pink-soft) 0%,#fff 60%);border:1px solid var(--line);border-radius:var(--radius-lg);padding:32px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;}
+.cross-icon{width:64px;height:64px;border-radius:18px;background:#fff;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);}
+.cross-card h3{margin:0 0 4px;font-size:20px;font-weight:800;}
+.cross-card p{margin:0;color:var(--ink-2);font-size:14.5px;}
+@media(max-width:760px){.cross-card{grid-template-columns:1fr;text-align:center;}}
+
+.foot-cta{max-width:1200px;margin:0 auto 80px;padding:64px 32px;background:var(--ink);color:#fff;border-radius:var(--radius-lg);text-align:center;position:relative;overflow:hidden;}
+.foot-cta::before,.foot-cta::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;}
+.foot-cta::before{background:radial-gradient(circle, rgba(20,120,124,.45), transparent 60%);top:-120px;left:-100px;}
+.foot-cta::after{background:radial-gradient(circle, rgba(236,26,120,.35), transparent 60%);bottom:-140px;right:-100px;}
+.foot-cta h2{position:relative;font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.02em;margin:0 0 12px;}
+.foot-cta p{position:relative;color:#bcc1d6;font-size:17px;max-width:560px;margin:0 auto 24px;}
+.foot-cta .btn{position:relative;}
+
+footer{max-width:1200px;margin:0 auto;padding:32px 24px;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;}
+footer a:hover{color:var(--ink);}
+footer .legal{font-size:12px;line-height:1.5;}
+footer .legal b{color:var(--ink);font-weight:700;}
+@media(max-width:760px){footer{grid-template-columns:1fr;text-align:center;}}
+
+.hidden{display:none !important;}
+</style>
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <svg class="logo-icon" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
+        <path fill="#EC1A78" fill-rule="evenodd" d="M5 165 L60 18 Q65 5 70 18 L120 165 L97 165 L82 130 L40 130 L25 165 Z M50 112 L72 112 L61 80 Z"/>
+        <path fill="#EC1A78" fill-rule="evenodd" d="M175 65 A50 50 0 1 1 175 165 A50 50 0 1 1 175 65 Z M175 88 A27 27 0 1 1 175 142 A27 27 0 1 1 175 88 Z"/>
+        <rect x="215" y="65" width="20" height="100" rx="10" fill="#EC1A78"/>
+        <path stroke="#14787C" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M158 117 L173 134 L200 95"/>
+      </svg>
+      <span class="wordmark">We<span class="pink">ll</span>ness<span class="parent">AAppo<span class="dot-i">i</span>nt</span></span>
+    </div>
+    <div class="nav-links">
+      <a href="#demo" data-i18n="nav_demo">Demo</a>
+      <a href="#how" data-i18n="nav_how">How it works</a>
+      <a href="#cost" data-i18n="nav_pricing">Pricing</a>
+      <a href="aappoint.html" style="color:var(--teal);font-weight:600;" data-i18n="nav_dine">Dining ↗</a>
+    </div>
+    <div class="lang">
+      <button data-lang="zh-TW" class="on">中文</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="th">TH</button>
+    </div>
+    <button class="cta-top" onclick="scrollToDemo()" data-i18n="nav_cta">試用展示</button>
+  </div>
+</nav>
+
+<!-- ============== HERO ============== -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="brand-tagline" data-i18n="brand_line">一個平台，無限可能。</div>
+      <span class="kicker"><span class="pulse"></span><span data-i18n="kicker">即時展示 • 無需註冊 • 香港</span></span>
+      <h1 class="hero-title">
+        <span data-i18n="h1_a">試試預約一次水療。</span><br>
+        <span class="accent" data-i18n="h1_b">再開設您自己的</span> <span class="underline accent" data-i18n="h1_c">養生品牌。</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero_sub">親身體驗顧客在水療、按摩、診所、健身房預約時看到的流程。如果您覺得簡單、舒適、價格便宜得出乎意料 — 您的店家可在 2 分鐘內上線。</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" onclick="scrollToDemo()">
+          <span data-i18n="cta_demo">試用展示</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <a href="#how" class="btn btn-ghost" data-i18n="cta_how">看看怎麼運作</a>
+      </div>
+      <div class="hero-meta">
+        <span><b data-i18n="meta_start_v">年費 HK$99（~$10）</b></span>
+        <span><b>0%</b> <span data-i18n="meta_commission">訂單佣金</span></span>
+        <span><b>+3.5%</b> <span data-i18n="meta_venues">香港 GDP 成長 · 養生市場</span></span>
+      </div>
+    </div>
+    <div class="phone-wrap">
+      <div class="float-badge fb-1">
+        <div class="fb-icon">⚡</div>
+        <span data-i18n="fb_easy">8 秒完成預約</span>
+      </div>
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="ps-top">
+            <div class="small" data-i18n="ph_loc">香港 • 今晚</div>
+            <h4 data-i18n="ph_title">尋找附近水療 / 按摩 / 健身</h4>
+            <div class="ps-search">🔎 <span data-i18n="ph_search">水療、按摩、瑜伽、診所…</span></div>
+          </div>
+          <div class="ps-list">
+            <div class="ps-card"><div class="ps-thumb">💆</div><div><h5>Plateau Spa</h5><p>Grand Hyatt · 灣仔</p></div><div class="ps-tag">Spa</div></div>
+            <div class="ps-card"><div class="ps-thumb">🧘</div><div><h5>Pure Yoga</h5><p>The ONE · 尖沙咀</p></div><div class="ps-tag">瑜伽</div></div>
+            <div class="ps-card"><div class="ps-thumb">👣</div><div><h5>Ten Feet Tall</h5><p>L'hotel · 銅鑼灣</p></div><div class="ps-tag">足療</div></div>
+            <div class="ps-card"><div class="ps-thumb">🦷</div><div><h5>Smile Central</h5><p>IFC · 中環</p></div><div class="ps-tag">牙科</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="float-badge fb-2">
+        <div class="fb-icon green">$</div>
+        <span data-i18n="fb_cost">年費僅 HK$99</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============== PILLARS ============== -->
+<section class="pillars">
+  <div class="pillar"><div class="pillar-ico">⚡</div><div><h3 data-i18n="p1_t">簡單</h3><p data-i18n="p1_d">終結 App Fatigue。AAppoint 取代顧客每天切換的 5–7 個應用程式。顧客 8 秒預約，您 2 分鐘設定。</p></div></div>
+  <div class="pillar"><div class="pillar-ico">🛋</div><div><h3 data-i18n="p2_t">舒適</h3><p data-i18n="p2_d">AI 智能推薦讓顧客在最對的時刻找到您 — 加上自動提醒，減少最多 70% 的爽約。</p></div></div>
+  <div class="pillar"><div class="pillar-ico">$</div><div><h3 data-i18n="p3_t">划算</h3><p data-i18n="p3_d">年費 HK$99（~$10 USD）— 每天不到 HK$0.30。訂單 0% 佣金。E-voucher 僅 2.5%。</p></div></div>
+</section>
+
+<!-- ============== VERTICALS ============== -->
+<section class="verticals">
+  <div class="vert-head">
+    <span class="eyebrow" data-i18n="vert_eye">為養生產業而生</span>
+    <h2 style="font-size:clamp(26px,3.2vw,38px);margin:8px 0 10px;letter-spacing:-.02em;font-weight:800;" data-i18n="vert_h">不只是預約系統 — 是您的整套運營後台。</h2>
+    <p style="color:var(--ink-2);max-width:660px;margin:0 auto;" data-i18n="vert_p">每個垂直領域都有專屬的工作流程：療程組合、療程師班表、優惠券、會員制、訂金、現場簽到。</p>
+  </div>
+  <div class="vert-grid">
+    <div class="vert-card"><div class="vert-emoji">💆</div><h4 data-i18n="v1_t">水療 Spa</h4><p data-i18n="v1_d">套餐、療程師、香薰選擇</p></div>
+    <div class="vert-card"><div class="vert-emoji">👣</div><h4 data-i18n="v2_t">按摩 Massage</h4><p data-i18n="v2_d">時長、力度、技師性別</p></div>
+    <div class="vert-card"><div class="vert-emoji">🩺</div><h4 data-i18n="v3_t">診所 Clinic</h4><p data-i18n="v3_d">醫生、診症類別、健康紀錄</p></div>
+    <div class="vert-card"><div class="vert-emoji">🦷</div><h4 data-i18n="v4_t">牙科 Dental</h4><p data-i18n="v4_d">洗牙、矯齒、植牙、X 光</p></div>
+    <div class="vert-card"><div class="vert-emoji">🏋️</div><h4 data-i18n="v5_t">健身 Gym</h4><p data-i18n="v5_d">私人教練、團體班、設施</p></div>
+    <div class="vert-card"><div class="vert-emoji">🧘</div><h4 data-i18n="v6_t">瑜伽 Yoga</h4><p data-i18n="v6_d">熱瑜伽、空中、冥想班</p></div>
+    <div class="vert-card"><div class="vert-emoji">💇</div><h4 data-i18n="v7_t">美髮 / 美甲</h4><p data-i18n="v7_d">設計師、款式預覽、加購</p></div>
+    <div class="vert-card"><div class="vert-emoji">✨</div><h4 data-i18n="v8_t">醫美 Aesthetics</h4><p data-i18n="v8_d">療程組合、術後追蹤</p></div>
+  </div>
+</section>
+
+<!-- ============== DEMO ============== -->
+<section class="demo-section" id="demo">
+  <div class="section-head">
+    <span class="eyebrow" data-i18n="demo_eyebrow">即時展示 • 無需登入</span>
+    <h2 data-i18n="demo_title">端到端看見您自己的店家。</h2>
+    <p data-i18n="demo_sub">輸入您真實的店名和區域。我們會抓取 Google Places 公開資料，讓您看到顧客預約時實際看到的畫面。</p>
+  </div>
+  <div class="demo-stage">
+    <aside class="demo-rail">
+      <div class="demo-rail-title" data-i18n="rail_title">展示流程</div>
+      <div class="steps" id="steps">
+        <div class="step on" data-step="1"><div class="step-num">1</div><div><h5 data-i18n="s1_t">輸入您的店家</h5><p data-i18n="s1_d">店名 + 區域</p></div></div>
+        <div class="step" data-step="2"><div class="step-num">2</div><div><h5 data-i18n="s2_t">自動匯入資料</h5><p data-i18n="s2_d">Google Places 查詢</p></div></div>
+        <div class="step" data-step="3"><div class="step-num">3</div><div><h5 data-i18n="s3_t">選療程與時段</h5><p data-i18n="s3_d">顧客視角</p></div></div>
+        <div class="step" data-step="4"><div class="step-num">4</div><div><h5 data-i18n="s4_t">確認預約</h5><p data-i18n="s4_d">8 秒流程</p></div></div>
+        <div class="step" data-step="5"><div class="step-num">5</div><div><h5 data-i18n="s5_t">開通您的店家</h5><p data-i18n="s5_d">2 分鐘上線</p></div></div>
+      </div>
+      <div class="rail-foot"><b data-i18n="rail_foot_t">不會儲存任何資料。</b><span data-i18n="rail_foot_d"> 這是沙盒，讓您在註冊前先感受流程。</span></div>
+    </aside>
+
+    <div class="demo-pane">
+      <!-- STEP 1 -->
+      <div class="pane on" data-pane="1">
+        <h3 data-i18n="p1_h">告訴我們您的店家</h3>
+        <p class="sub" data-i18n="p1_s">我們會從 Google Places 抓取公開資料，幾秒內讓您看到預約頁面。</p>
+        <div class="row-2">
+          <div class="field"><label data-i18n="lbl_name">店家名稱</label><input id="vname" type="text" placeholder="例如 Plateau Spa" autocomplete="off"/></div>
+          <div class="field"><label data-i18n="lbl_city">城市 / 區域</label><input id="vloc" type="text" placeholder="香港" autocomplete="off"/></div>
+        </div>
+        <div class="suggestion-row" id="suggestions">
+          <span style="font-size:12.5px;color:var(--muted);align-self:center;margin-right:4px;" data-i18n="try">或試試:</span>
+        </div>
+        <div class="search-actions">
+          <button class="btn btn-primary" onclick="lookupVenue()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>
+            <span data-i18n="btn_lookup">搜尋我的店家</span>
+          </button>
+        </div>
+      </div>
+      <!-- STEP 2 -->
+      <div class="pane" data-pane="2">
+        <h3 data-i18n="p2_h">匯入您的資料</h3>
+        <p class="sub" data-i18n="p2_s">呼叫 Google Places API · 抓取照片、營業時間和地址…</p>
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <div>
+            <div style="font-weight:600;font-size:14.5px;" id="loadingMsg">搜尋 Google Places 中…</div>
+            <div style="font-size:12.5px;color:var(--muted);margin-top:2px;" data-i18n="loading_sub">通常需要約 1 秒。</div>
+          </div>
+        </div>
+        <div id="venueResult" class="hidden" style="margin-top:18px;">
+          <div class="venue-card">
+            <div class="venue-photo" id="vPhoto">💆</div>
+            <div class="venue-body">
+              <div class="venue-pills">
+                <span class="venue-pill api">⚡ <span data-i18n="pill_api">透過 Google Places 自動匯入</span></span>
+                <span class="venue-pill" id="vCategory">Spa</span>
+              </div>
+              <h4 id="vTitle">Plateau Spa</h4>
+              <div class="venue-meta">
+                <span>📍 <span id="vAddr">—</span></span>
+                <span>⭐ <span id="vRating">—</span></span>
+                <span>🕒 <span id="vHours">—</span></span>
+                <span>💰 <span id="vPrice">$$</span></span>
+              </div>
+              <p style="margin:6px 0 0;font-size:14px;color:var(--ink-2);" id="vDesc"></p>
+              <div class="places-attr">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7 2 3 6 3 11c0 6 9 11 9 11s9-5 9-11c0-5-4-9-9-9zm0 12.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z"/></svg>
+                <span data-i18n="places_attr">資料來自 Google Places API。上線前您可編輯任何欄位。</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px;">
+            <button class="btn btn-primary" onclick="goStep(3)"><span data-i18n="btn_continue">繼續 → 看顧客視角</span></button>
+            <button class="btn btn-ghost" onclick="goStep(1)" data-i18n="btn_retry">換一家試試</button>
+          </div>
+        </div>
+      </div>
+      <!-- STEP 3 -->
+      <div class="pane" data-pane="3">
+        <h3 data-i18n="p3_h">這是您顧客看到的畫面</h3>
+        <p class="sub" data-i18n="p3_s">選擇療程、日期和時間。他們做的也一樣 — 70% 的人 10 秒內完成。</p>
+        <div class="venue-card" style="margin-bottom:18px;">
+          <div class="venue-photo" id="vPhoto2" style="min-height:120px;font-size:42px;">💆</div>
+          <div class="venue-body" style="padding:14px 20px;">
+            <h4 id="vTitle2" style="font-size:17px;">Plateau Spa</h4>
+            <div class="venue-meta" style="margin:0;font-size:12.5px;"><span id="vAddr2">—</span><span>·</span><span data-i18n="open_now">營業中</span></div>
+          </div>
+        </div>
+        <div class="book-card" style="margin-bottom:14px;">
+          <h5 data-i18n="pick_service">選療程</h5>
+          <div class="svc-row" id="services"></div>
+        </div>
+        <div class="book-grid">
+          <div class="book-card"><h5 data-i18n="pick_date">選日期</h5><div class="dates" id="dates"></div></div>
+          <div class="book-card"><h5 data-i18n="pick_time">選時間</h5><div class="times" id="times"></div></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:18px;align-items:center;">
+          <button class="btn btn-primary" id="confirmBtn" disabled style="opacity:.55;cursor:not-allowed;" onclick="goStep(4)"><span data-i18n="btn_book">確認預約</span></button>
+          <span style="font-size:13px;color:var(--muted);" id="pickerHint" data-i18n="picker_hint">← 請先選日期與時間</span>
+        </div>
+      </div>
+      <!-- STEP 4 -->
+      <div class="pane" data-pane="4">
+        <div class="confirm-box">
+          <div class="confirm-check">✓</div>
+          <h3 data-i18n="confirm_h">預約成功！</h3>
+          <p data-i18n="confirm_s">從「找店家」到「明天見」只用 8 秒。這就是您顧客的體驗。</p>
+          <div class="summary">
+            <div><span data-i18n="sum_venue">店家</span><b id="sumVenue">Plateau Spa</b></div>
+            <div><span data-i18n="sum_service">療程</span><b id="sumService">Aroma Massage 60min</b></div>
+            <div><span data-i18n="sum_when">時間</span><b id="sumWhen">週四 • 15:00</b></div>
+            <div><span data-i18n="sum_status">狀態</span><b style="color:var(--teal);" data-i18n="sum_confirmed">已確認</b></div>
+            <div><span data-i18n="sum_cost">店家被抽成</span><b style="color:var(--teal);" data-i18n="sum_cost_v">0%（訂單免佣金）</b></div>
+          </div>
+          <button class="btn btn-primary" onclick="goStep(5)"><span data-i18n="btn_flip">看店家後台 →</span></button>
+        </div>
+        <div class="flip-card">
+          <div>
+            <h4 data-i18n="flip_h">想為您的店家擁有這套預約流程嗎？</h4>
+            <p data-i18n="flip_s">您剛剛體驗的一切 — 搜尋、資料、療程選擇、自動提醒 — 都在 AAppoint Wellness 上運行。HK$0 開始。</p>
+          </div>
+          <button class="btn btn-primary" onclick="goStep(5)"><span data-i18n="btn_claim">開通我的店家</span></button>
+        </div>
+      </div>
+      <!-- STEP 5 -->
+      <div class="pane" data-pane="5">
+        <h3 data-i18n="p5_h">距離上線只剩 2 分鐘</h3>
+        <p class="sub" data-i18n="p5_s">我們已從 Google 取得您的資料。確認幾項細節，預約頁面就會上線。</p>
+        <div class="venue-card" style="margin-bottom:18px;">
+          <div class="venue-photo" id="vPhoto3" style="min-height:120px;font-size:42px;">💆</div>
+          <div class="venue-body" style="padding:14px 20px;">
+            <div class="venue-pills"><span class="venue-pill" data-i18n="pill_ready">準備發布</span></div>
+            <h4 id="vTitle3" style="font-size:18px;">Plateau Spa</h4>
+            <div class="venue-meta" style="margin:0;font-size:12.5px;"><span id="vAddr3">—</span></div>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field"><label data-i18n="lbl_email">您的電子郵件</label><input type="email" placeholder="you@wellness.hk"/></div>
+          <div class="field"><label data-i18n="lbl_phone">電話（接收預約通知）</label><input type="tel" placeholder="+852 …"/></div>
+        </div>
+        <div style="background:#f8f9fc;border-radius:14px;padding:18px;margin:6px 0 18px;font-size:13.5px;color:var(--ink-2);">
+          <b data-i18n="incl_h">第 1 天就能用：</b>
+          <ul style="margin:8px 0 0;padding-left:18px;">
+            <li data-i18n="incl_1">專屬預約頁（your-name.aappoint.me/wellness）</li>
+            <li data-i18n="incl_2">療程組合 + 療程師班表</li>
+            <li data-i18n="incl_3">自動 SMS / WhatsApp / 電子郵件提醒</li>
+            <li data-i18n="incl_4">訂金防爽約 + 取消政策</li>
+            <li data-i18n="incl_5">會員制 + 預付套票管理</li>
+            <li data-i18n="incl_6">HK$0 設定、0% 佣金、隨時取消</li>
+          </ul>
+        </div>
+        <button class="btn btn-primary" style="font-size:16px;padding:16px 26px;" onclick="finalCelebrate()">
+          <span data-i18n="btn_finish">發布我的店家（免費）</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <div style="font-size:12.5px;color:var(--muted);margin-top:8px;" data-i18n="claim_disclaim">無需信用卡。無綁約。2 分鐘上線。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== HOW IT WORKS ============== -->
+<section class="how" id="how" style="text-align:center;">
+  <span class="eyebrow" data-i18n="how_eyebrow">AAppoint Wellness 如何運作</span>
+  <h2 style="font-size:clamp(28px,3.6vw,42px);margin:8px 0 20px;letter-spacing:-.02em;font-weight:800;" data-i18n="how_title">從顧客到店家，一個平台搞定。</h2>
+  <div class="how-tabs">
+    <button class="how-tab on" data-tab="c" onclick="setTab('c')" data-i18n="tab_c">給顧客</button>
+    <button class="how-tab" data-tab="b" onclick="setTab('b')" data-i18n="tab_b">給店家</button>
+  </div>
+  <div class="how-grid" id="howGridC">
+    <div class="how-card"><div class="num">1</div><h4 data-i18n="hc1_t">按需求搜尋</h4><p data-i18n="hc1_d">「銅鑼灣 60 分鐘按摩 今晚 7 點」AAppoint Wellness 只顯示那個時段真的有空位的店家。</p></div>
+    <div class="how-card"><div class="num">2</div><h4 data-i18n="hc2_t">8 秒完成預約</h4><p data-i18n="hc2_d">無需下載 App、無需註冊。選療程、選時段、輸入電話，搞定。</p></div>
+    <div class="how-card"><div class="num">3</div><h4 data-i18n="hc3_t">輕鬆赴約</h4><p data-i18n="hc3_d">前一天 SMS / WhatsApp 提醒。臨時有事？一鍵改期或取消。</p></div>
+  </div>
+  <div class="how-grid hidden" id="howGridB">
+    <div class="how-card"><div class="num">1</div><h4 data-i18n="hb1_t">30 秒自動匯入</h4><p data-i18n="hb1_d">輸入店名。Google Places 自動填入照片、時間、地址。可隨意編輯。</p></div>
+    <div class="how-card"><div class="num">2</div><h4 data-i18n="hb2_t">設定療程與班表</h4><p data-i18n="hb2_d">建立療程組合、療程師班表、訂金規則、會員制。模板涵蓋所有養生垂直領域。</p></div>
+    <div class="how-card"><div class="num">3</div><h4 data-i18n="hb3_t">看著預約進來</h4><p data-i18n="hb3_d">顧客在搜尋中找到您。您獲得簡潔儀表板、SMS / WhatsApp 通知，零爽約煩惱。</p></div>
+  </div>
+</section>
+
+<!-- ============== VOTE / WISHLIST ============== -->
+<section class="vote" id="vote">
+  <div class="vote-head">
+    <span class="eyebrow" data-i18n="v_eye">需求訊號 • 匿名投票</span>
+    <h2 data-i18n="v_h">投票選出您最想預約的養生店家</h2>
+    <p data-i18n="v_p">告訴我們您希望哪些水療、按摩、診所、健身房上 AAppoint Wellness。投票總數保密 — 您只看到末三位。完整數據以等候名單形式送給店家。</p>
+  </div>
+  <div class="vote-search">
+    <input id="voteInput" type="text" placeholder="輸入您想要的店家名稱…" autocomplete="off"/>
+    <button onclick="castCustomVote()" data-i18n="v_search_btn">投票</button>
+  </div>
+  <div class="vote-grid" id="voteGrid"></div>
+  <div class="vote-foot">
+    <div class="vote-explain">
+      <h4 data-i18n="v_explain_h">運作方式</h4>
+      <ol>
+        <li data-i18n="v_explain_1">您為希望上 AAppoint Wellness 的店家投票。</li>
+        <li data-i18n="v_explain_2">票數保密 — 您只能看到末三位數。</li>
+        <li data-i18n="v_explain_3">每週我們向店家送出報告：「該地區有 X 位顧客想預約您」。</li>
+        <li data-i18n="v_explain_4">當店家加入後，卡片自動切換為「已上線」，直接帶您到 Google Maps 預約頁面。</li>
+      </ol>
+    </div>
+    <div class="vote-merchant">
+      <h4 data-i18n="v_merchant_h">您是店家經營者？</h4>
+      <p data-i18n="v_merchant_p">看看有多少顧客為您投票 — 2 分鐘上線，將需求轉為第一天的預約。</p>
+      <button class="btn btn-teal" onclick="scrollToDemo()"><span data-i18n="v_merchant_btn">查看我的票數</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============== POST-VOTE MODAL (agentgita) ============== -->
+<div class="vote-modal" id="voteModal" role="dialog" aria-modal="true" aria-labelledby="voteModalTitle">
+  <div class="modal-shell">
+    <div class="modal-head">
+      <div class="modal-head-l">
+        <div class="modal-icon">✓</div>
+        <div>
+          <h4 id="voteModalTitle" data-i18n="m_h">感謝您的投票！認識 Agent Gita</h4>
+          <div class="modal-sub" data-i18n="m_sub">24 小時不間斷協助店家回應顧客的 AI 助理</div>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeVoteModal()" aria-label="Close">×</button>
+    </div>
+    <div class="modal-body">
+      <iframe class="modal-iframe" id="voteModalIframe" src="about:blank" title="Agent Gita" referrerpolicy="no-referrer" loading="lazy"></iframe>
+      <div class="modal-fallback" id="voteModalFallback">
+        <h5 data-i18n="m_fb_h">此頁面禁止內嵌</h5>
+        <p data-i18n="m_fb_p">agentgita.com 設定了安全標頭，禁止在其他網站內嵌顯示。請於新分頁開啟。</p>
+        <a href="https://agentgita.com/" target="_blank" rel="noopener" class="btn btn-primary" style="pointer-events:auto;" data-i18n="m_fb_btn">於新分頁開啟 →</a>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <span data-i18n="m_foot">您的投票已登記。在我們收集投票的同時，看看這個工具。</span>
+      <a href="https://agentgita.com/" target="_blank" rel="noopener" data-i18n="m_foot_link">全螢幕開啟 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============== E-PAYMENT / DISTRIBUTION ============== -->
+<section class="channels">
+  <div class="channels-head">
+    <span class="eyebrow" data-i18n="ch_eye">為香港工作流程而生</span>
+    <h2 data-i18n="ch_h">客戶用什麼付款，我們就支援什麼。</h2>
+    <p data-i18n="ch_p">原生整合香港日常付款工具與分發通路 — 不需要另一個 POS、不需要重複設定。</p>
+  </div>
+  <div class="channel-grid">
+    <div class="channel-card octopus">
+      <div class="ch-logo">🐙</div>
+      <h4 data-i18n="ch1_h">Octopus 八達通</h4>
+      <p data-i18n="ch1_p">到店感應付款。訂金、套票、零售商品全部支援。本地客最熟悉的付款方式。</p>
+      <span class="ch-pill featured" data-i18n="ch_native">原生整合</span>
+    </div>
+    <div class="channel-card alipay">
+      <div class="ch-logo">+</div>
+      <h4 data-i18n="ch2_h">AliPay+</h4>
+      <p data-i18n="ch2_p">一個 QR 收 13+ 亞洲錢包：AliPay、AliPay HK、GCash、KakaoPay、TrueMoney、TNG、Bkash 等 — 觸及全亞洲遊客。</p>
+      <span class="ch-pill featured" data-i18n="ch_native">原生整合</span>
+    </div>
+    <div class="channel-card wechat">
+      <div class="ch-logo">微</div>
+      <h4 data-i18n="ch3_h">WeChat Pay HK</h4>
+      <p data-i18n="ch3_p">內地客戶熟悉的訂位與付款流程。中港兩地客群一個介面搞定。</p>
+      <span class="ch-pill featured" data-i18n="ch_native">原生整合</span>
+    </div>
+    <div class="channel-card google">
+      <div class="ch-logo">G</div>
+      <h4 data-i18n="ch4_h">Reserve with Google</h4>
+      <p data-i18n="ch4_p">香港 Google Search 與 Maps 上的「線上預約」按鈕，由 AAppoint 提供。</p>
+      <span class="ch-pill" data-i18n="ch_all">全方案</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PRICING (2-TIER ANNUAL) ============== -->
+<section class="pricing" id="cost">
+  <div class="pricing-head">
+    <span class="eyebrow" style="color:var(--teal);" data-i18n="cost_eyebrow">透明定價 • 年費制 • 0% 佣金</span>
+    <h2 data-i18n="cost_h">年費 HK$99 起</h2>
+    <p data-i18n="cost_p">兩個簡單方案，一年付一次 — 比一杯精品咖啡還便宜。訂單 0% 佣金，E-voucher 僅 2.5%。</p>
+  </div>
+  <div class="tier-grid">
+    <div class="tier">
+      <div class="tier-name" data-i18n="t1_n">Lite</div>
+      <div class="tier-price">HK$99<small data-i18n="per_year">/年</small></div>
+      <div class="tier-usd" data-i18n="t1_usd">≈ 每年 $10 USD · 每天不到 HK$0.30</div>
+      <div class="tier-bill" data-i18n="bill_yearly">一年付一次</div>
+      <ul>
+        <li data-i18n="t1_f1">無限預約量</li>
+        <li data-i18n="t1_f2">Reserve with Google 按鈕</li>
+        <li data-i18n="t1_f3">專屬預約頁（your-name.aappoint.me/wellness）</li>
+        <li data-i18n="t1_f4">自動電子郵件提醒</li>
+        <li data-i18n="t1_f5">基礎儀表板與報表</li>
+        <li data-i18n="t1_f6">Octopus + WeChat Pay HK</li>
+      </ul>
+      <div class="tier-cta" data-i18n="tier_start">開始使用</div>
+    </div>
+    <div class="tier featured">
+      <div class="tier-flag" data-i18n="tier_pop">準備擴張的店家首選</div>
+      <div class="tier-name" data-i18n="t2_n">Premium</div>
+      <div class="tier-price">HK$888<small data-i18n="per_year_2">/年</small></div>
+      <div class="tier-usd" data-i18n="t2_usd">≈ 每年 $100 USD · 約 HK$74/月</div>
+      <div class="tier-bill" data-i18n="bill_yearly_2">一年付一次</div>
+      <ul>
+        <li data-i18n="t2_f1"><b>包含 Lite 全部功能</b></li>
+        <li data-i18n="t2_f2">SMS + WhatsApp 自動通知</li>
+        <li data-i18n="t2_f3">AliPay+（13+ 亞洲錢包）整合</li>
+        <li data-i18n="t2_f4">會員制 + 預付套票 + 訂金管理</li>
+        <li data-i18n="t2_f5">療程師班表 + 多分店容量管理</li>
+        <li data-i18n="t2_f6">中/英/泰文優先客服</li>
+      </ul>
+      <div class="tier-cta" data-i18n="tier_choose">選擇此方案</div>
+    </div>
+  </div>
+  <div class="pricing-foot">
+    <b data-i18n="foot_pricing_b">所有方案皆包含：</b>
+    <span data-i18n="foot_pricing_p"> 訂單 0% 佣金 · E-voucher 僅 2.5% · 可隨時取消 · 14 天免費試用 · WhatsApp 通知免費</span>
+  </div>
+</section>
+
+<!-- ============== CROSS-SELL TO DINE-IN ============== -->
+<section class="cross-sell">
+  <a href="aappoint.html" class="cross-card" style="display:grid;text-decoration:none;color:inherit;">
+    <div class="cross-icon">
+      <svg viewBox="0 0 240 180" width="36" height="28" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <path fill="#EC1A78" fill-rule="evenodd" d="M5 165 L60 18 Q65 5 70 18 L120 165 L97 165 L82 130 L40 130 L25 165 Z M50 112 L72 112 L61 80 Z"/>
+        <path fill="#EC1A78" fill-rule="evenodd" d="M175 65 A50 50 0 1 1 175 165 A50 50 0 1 1 175 65 Z M175 88 A27 27 0 1 1 175 142 A27 27 0 1 1 175 88 Z"/>
+        <rect x="215" y="65" width="20" height="100" rx="10" fill="#EC1A78"/>
+        <path stroke="#14787C" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none" d="M158 117 L173 134 L200 95"/>
+      </svg>
+    </div>
+    <div>
+      <h3 data-i18n="cross_h">經營餐廳？</h3>
+      <p data-i18n="cross_p">試試 <b style="color:var(--pink);">AAppoint</b> — 我們在泰國的姊妹平台，專為堂食餐廳訂位打造。</p>
+    </div>
+    <div class="btn btn-teal"><span data-i18n="cross_btn">前往 Dining →</span></div>
+  </a>
+</section>
+
+<!-- ============== FOOTER CTA ============== -->
+<section class="foot-cta">
+  <h2 data-i18n="foot_h">簡單、舒適、近乎免費。</h2>
+  <p data-i18n="foot_p">您剛體驗了顧客端。2 分鐘開通您的店家 — 同樣的流程，掛上您的名字。</p>
+  <button class="btn btn-primary" onclick="scrollToDemo()">
+    <span data-i18n="foot_btn">從展示開始</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </button>
+</section>
+
+<footer>
+  <div class="legal">
+    <b>AAppoint Wellness</b><br>
+    <span data-i18n="legal_op">Appointment Anywhere Happiness Kindness Company Limited</span><br>
+    <span data-i18n="legal_reg">香港商業登記號 / HK B/R No. 38368397</span><br>
+    <span data-i18n="legal_addr">Office 4, 10/F, Kwan Chart Tower, No. 6 Tonnochy Road, Wanchai, Hong Kong</span>
+  </div>
+  <div class="links">
+    <a href="#" data-i18n="f_terms">條款</a>
+    <a href="#" data-i18n="f_privacy">隱私</a>
+    <a href="#" data-i18n="f_contact">聯絡</a>
+    <a href="aappoint.html" style="color:var(--pink);" data-i18n="f_dine">AAppoint (Dining) ↗</a>
+  </div>
+  <div>© 2026</div>
+</footer>
+
+<script>
+/* ===== i18n ===== */
+const I18N = {
+  "zh-TW": {
+    nav_demo:"展示", nav_how:"運作方式", nav_pricing:"價格", nav_dine:"Dining ↗", nav_cta:"試用展示",
+    kicker:"即時展示 • 無需註冊 • 香港",
+    h1_a:"試試預約一次水療。", h1_b:"再開設您自己的", h1_c:"養生品牌。",
+    hero_sub:"親身體驗顧客在水療、按摩、診所、健身房預約時看到的流程。如果您覺得簡單、舒適、價格便宜得出乎意料 — 您的店家可在 2 分鐘內上線。",
+    cta_demo:"試用展示", cta_how:"看看怎麼運作",
+    meta_min:"分鐘", meta_setup:"設定時間", meta_commission:"訂單佣金", meta_venues:"香港 GDP 成長 · 養生市場", meta_start_v:"年費 HK$99（~$10）",
+    fb_easy:"8 秒完成預約", fb_cost:"年費僅 HK$99",
+    ph_loc:"香港 • 今晚", ph_title:"尋找附近水療 / 按摩 / 健身", ph_search:"水療、按摩、瑜伽、診所…",
+    p1_t:"簡單", p1_d:"終結 App Fatigue。AAppoint 取代顧客每天切換的 5–7 個應用程式。顧客 8 秒預約，您 2 分鐘設定。",
+    p2_t:"舒適", p2_d:"AI 智能推薦讓顧客在最對的時刻找到您 — 加上自動提醒，減少最多 70% 的爽約。",
+    brand_line:"一個平台，無限可能。",
+    p3_t:"划算", p3_d:"年費 HK$99（~$10 USD）— 每天不到 HK$0.30。訂單 0% 佣金。E-voucher 僅 2.5%。",
+    vert_eye:"為養生產業而生", vert_h:"不只是預約系統 — 是您的整套運營後台。",
+    vert_p:"每個垂直領域都有專屬的工作流程：療程組合、療程師班表、優惠券、會員制、訂金、現場簽到。",
+    v1_t:"水療 Spa", v1_d:"套餐、療程師、香薰選擇",
+    v2_t:"按摩 Massage", v2_d:"時長、力度、技師性別",
+    v3_t:"診所 Clinic", v3_d:"醫生、診症類別、健康紀錄",
+    v4_t:"牙科 Dental", v4_d:"洗牙、矯齒、植牙、X 光",
+    v5_t:"健身 Gym", v5_d:"私人教練、團體班、設施",
+    v6_t:"瑜伽 Yoga", v6_d:"熱瑜伽、空中、冥想班",
+    v7_t:"美髮 / 美甲", v7_d:"設計師、款式預覽、加購",
+    v8_t:"醫美 Aesthetics", v8_d:"療程組合、術後追蹤",
+    demo_eyebrow:"即時展示 • 無需登入", demo_title:"端到端看見您自己的店家。",
+    demo_sub:"輸入您真實的店名和區域。我們會抓取 Google Places 公開資料，讓您看到顧客預約時實際看到的畫面。",
+    rail_title:"展示流程",
+    s1_t:"輸入您的店家", s1_d:"店名 + 區域",
+    s2_t:"自動匯入資料", s2_d:"Google Places 查詢",
+    s3_t:"選療程與時段", s3_d:"顧客視角",
+    s4_t:"確認預約", s4_d:"8 秒流程",
+    s5_t:"開通您的店家", s5_d:"2 分鐘上線",
+    rail_foot_t:"不會儲存任何資料。", rail_foot_d:" 這是沙盒，讓您在註冊前先感受流程。",
+    p1_h:"告訴我們您的店家", p1_s:"我們會從 Google Places 抓取公開資料，幾秒內讓您看到預約頁面。",
+    lbl_name:"店家名稱", lbl_city:"城市 / 區域", try:"或試試:", btn_lookup:"搜尋我的店家",
+    p2_h:"匯入您的資料", p2_s:"呼叫 Google Places API · 抓取照片、營業時間和地址…",
+    loading_msg_a:"搜尋 Google Places 中…", loading_msg_b:"找到 1 筆 — 抓取照片中…", loading_msg_c:"讀取營業時間與聯絡方式…",
+    loading_sub:"通常需要約 1 秒。",
+    pill_api:"透過 Google Places 自動匯入", places_attr:"資料來自 Google Places API。上線前您可編輯任何欄位。",
+    btn_continue:"繼續 → 看顧客視角", btn_retry:"換一家試試",
+    p3_h:"這是您顧客看到的畫面", p3_s:"選擇療程、日期和時間。他們做的也一樣 — 70% 的人 10 秒內完成。",
+    open_now:"營業中", pick_service:"選療程", pick_date:"選日期", pick_time:"選時間",
+    btn_book:"確認預約", picker_hint:"← 請先選日期與時間",
+    confirm_h:"預約成功！", confirm_s:"從「找店家」到「明天見」只用 8 秒。這就是您顧客的體驗。",
+    sum_venue:"店家", sum_service:"療程", sum_when:"時間", sum_status:"狀態", sum_confirmed:"已確認", sum_cost:"店家被抽成", sum_cost_v:"0%（訂單免佣金）",
+    btn_flip:"看店家後台 →", flip_h:"想為您的店家擁有這套預約流程嗎？",
+    flip_s:"您剛剛體驗的一切 — 搜尋、資料、療程選擇、自動提醒 — 都在 AAppoint Wellness 上運行。HK$0 開始。",
+    btn_claim:"開通我的店家",
+    p5_h:"距離上線只剩 2 分鐘", p5_s:"我們已從 Google 取得您的資料。確認幾項細節，預約頁面就會上線。",
+    pill_ready:"準備發布", lbl_email:"您的電子郵件", lbl_phone:"電話（接收預約通知）",
+    incl_h:"第 1 天就能用：",
+    incl_1:"專屬預約頁（your-name.aappoint.me/wellness）",
+    incl_2:"療程組合 + 療程師班表",
+    incl_3:"自動 SMS / WhatsApp / 電子郵件提醒",
+    incl_4:"訂金防爽約 + 取消政策",
+    incl_5:"會員制 + 預付套票管理",
+    incl_6:"年費僅 HK$99（~$10），訂單 0% 佣金，隨時取消",
+    btn_finish:"發布我的店家（免費）", claim_disclaim:"無需信用卡。無綁約。2 分鐘上線。",
+    how_eyebrow:"AAppoint Wellness 如何運作", how_title:"從顧客到店家，一個平台搞定。",
+    tab_c:"給顧客", tab_b:"給店家",
+    hc1_t:"按需求搜尋", hc1_d:"「銅鑼灣 60 分鐘按摩 今晚 7 點」AAppoint Wellness 只顯示那個時段真的有空位的店家。",
+    hc2_t:"8 秒完成預約", hc2_d:"無需下載 App、無需註冊。選療程、選時段、輸入電話，搞定。",
+    hc3_t:"輕鬆赴約", hc3_d:"前一天 SMS / WhatsApp 提醒。臨時有事？一鍵改期或取消。",
+    hb1_t:"30 秒自動匯入", hb1_d:"輸入店名。Google Places 自動填入照片、時間、地址。可隨意編輯。",
+    hb2_t:"設定療程與班表", hb2_d:"建立療程組合、療程師班表、訂金規則、會員制。模板涵蓋所有養生垂直領域。",
+    hb3_t:"看著預約進來", hb3_d:"顧客在搜尋中找到您。您獲得簡潔儀表板、SMS / WhatsApp 通知，零爽約煩惱。",
+    cost_eyebrow:"透明定價 • 年費制 • 0% 佣金", cost_h:"年費 HK$99 起",
+    cost_p:"兩個簡單方案，一年付一次 — 比一杯精品咖啡還便宜。訂單 0% 佣金，E-voucher 僅 2.5%。",
+    btn_try_free:"免費試用，不需要卡",
+    per_year:"/年", per_year_2:"/年",
+    bill_yearly:"一年付一次", bill_yearly_2:"一年付一次",
+    tier_pop:"準備擴張的店家首選", tier_start:"開始使用", tier_choose:"選擇此方案",
+    t1_n:"Lite", t1_usd:"≈ 每年 $10 USD · 每天不到 HK$0.30",
+    t1_f1:"無限預約量", t1_f2:"Reserve with Google 按鈕",
+    t1_f3:"專屬預約頁（your-name.aappoint.me/wellness）", t1_f4:"自動電子郵件提醒",
+    t1_f5:"基礎儀表板與報表", t1_f6:"Octopus + WeChat Pay HK",
+    t2_n:"Premium", t2_usd:"≈ 每年 $100 USD · 約 HK$74/月",
+    t2_f1:"<b>包含 Lite 全部功能</b>", t2_f2:"SMS + WhatsApp 自動通知",
+    t2_f3:"AliPay+（13+ 亞洲錢包）整合", t2_f4:"會員制 + 預付套票 + 訂金管理",
+    t2_f5:"療程師班表 + 多分店容量管理", t2_f6:"中/英/泰文優先客服",
+    foot_pricing_b:"所有方案皆包含：", foot_pricing_p:" 訂單 0% 佣金 · E-voucher 僅 2.5% · 可隨時取消 · 14 天免費試用 · WhatsApp 通知免費",
+    ch_eye:"為香港工作流程而生",
+    ch_h:"客戶用什麼付款，我們就支援什麼。",
+    ch_p:"原生整合香港日常付款工具與分發通路 — 不需要另一個 POS、不需要重複設定。",
+    ch_native:"原生整合", ch_all:"全方案",
+    ch1_h:"Octopus 八達通",
+    ch1_p:"到店感應付款。訂金、套票、零售商品全部支援。本地客最熟悉的付款方式。",
+    ch2_h:"AliPay+",
+    ch2_p:"一個 QR 收 13+ 亞洲錢包：AliPay、AliPay HK、GCash、KakaoPay、TrueMoney、TNG、Bkash 等 — 觸及全亞洲遊客。",
+    ch3_h:"WeChat Pay HK",
+    ch3_p:"內地客戶熟悉的訂位與付款流程。中港兩地客群一個介面搞定。",
+    ch4_h:"Reserve with Google",
+    ch4_p:"香港 Google Search 與 Maps 上的「線上預約」按鈕，由 AAppoint 提供。",
+    v_eye:"需求訊號 • 匿名投票",
+    v_h:"投票選出您最想預約的養生店家",
+    v_p:"告訴我們您希望哪些水療、按摩、診所、健身房上 AAppoint Wellness。投票總數保密 — 您只看到末三位。完整數據以等候名單形式送給店家。",
+    v_search_p:"輸入您想要的店家名稱…",
+    v_search_btn:"投票",
+    v_count_label:"票數末三位",
+    v_vote:"投票", v_voted:"已投票",
+    v_live:"已上線", v_live_msg:"已開放預約，點擊立即預約。",
+    v_book_maps:"於 Google Maps 預約",
+    v_explain_h:"運作方式",
+    v_explain_1:"您為希望上 AAppoint Wellness 的店家投票。",
+    v_explain_2:"票數保密 — 您只能看到末三位數。",
+    v_explain_3:"每週我們向店家送出報告：「該地區有 X 位顧客想預約您」。",
+    v_explain_4:"當店家加入後，卡片自動切換為「已上線」，直接帶您到 Google Maps 預約頁面。",
+    v_merchant_h:"您是店家經營者？",
+    v_merchant_p:"看看有多少顧客為您投票 — 2 分鐘上線，將需求轉為第一天的預約。",
+    v_merchant_btn:"查看我的票數",
+    v_toast_main:"您的投票已登記",
+    v_toast_sub:"匿名 · 僅顯示末三位 · 完整數據送給店家",
+    m_h:"感謝您的投票！認識 Agent Gita",
+    m_sub:"24 小時不間斷協助店家回應顧客的 AI 助理",
+    m_fb_h:"此頁面禁止內嵌",
+    m_fb_p:"agentgita.com 設定了安全標頭，禁止在其他網站內嵌顯示。請於新分頁開啟。",
+    m_fb_btn:"於新分頁開啟 →",
+    m_foot:"您的投票已登記。在我們收集投票的同時，看看這個工具。",
+    m_foot_link:"全螢幕開啟 →",
+    cross_h:"經營餐廳？", cross_p:"試試 <b style=\"color:var(--pink);\">AAppoint</b> — 我們在泰國的姊妹平台，專為堂食餐廳訂位打造。",
+    cross_btn:"前往 Dining →",
+    foot_h:"簡單、舒適、近乎免費。",
+    foot_p:"您剛體驗了顧客端。2 分鐘開通您的店家 — 同樣的流程，掛上您的名字。",
+    foot_btn:"從展示開始",
+    legal_op:"Appointment Anywhere Happiness Kindness Company Limited",
+    legal_reg:"香港商業登記號 / HK B/R No. 38368397",
+    legal_addr:"Office 4, 10/F, Kwan Chart Tower, No. 6 Tonnochy Road, Wanchai, Hong Kong",
+    f_terms:"條款", f_privacy:"隱私", f_contact:"聯絡", f_dine:"AAppoint (Dining) ↗"
+  },
+  en: {
+    nav_demo:"Demo", nav_how:"How it works", nav_pricing:"Pricing", nav_dine:"Dining ↗", nav_cta:"Try the demo",
+    kicker:"Live demo • No sign-up • Hong Kong",
+    h1_a:"Try a wellness booking.", h1_b:"Then run ", h1_c:"your own venue.",
+    hero_sub:"Walk through the exact booking flow your customers see at a spa, massage place, clinic, or gym. If it feels easy, comfortable, and surprisingly cheap — go live with your venue in 2 minutes.",
+    cta_demo:"Try the demo", cta_how:"See how it works",
+    meta_min:"min", meta_setup:"to set up", meta_commission:"on bookings", meta_venues:"HK GDP growth · wellness sector", meta_start_v:"HK$99/yr (~$10)",
+    fb_easy:"Booked in 8 seconds", fb_cost:"Just HK$99/year",
+    ph_loc:"Hong Kong • Tonight", ph_title:"Find spa, massage, gym, clinic", ph_search:"Spa, massage, yoga, clinic…",
+    p1_t:"Easy", p1_d:"End the App Fatigue. AAppoint replaces the 5–7 apps your customers juggle today. They book in 8 seconds; you set up in 2.",
+    p2_t:"Comfort", p2_d:"AI-powered discovery surfaces your venue when customers actually need it — plus auto-reminders that cut no-shows by up to 70%.",
+    brand_line:"One Platform. Infinite Possibilities.",
+    p3_t:"Cost", p3_d:"HK$99/year (~$10 USD) — less than HK$0.30 a day. 0% commission on bookings. Just 2.5% on E-vouchers.",
+    vert_eye:"Built for the wellness industry", vert_h:"Not just a booking system — your full operations back-office.",
+    vert_p:"Every vertical has its own purpose-built workflow: service menus, therapist rosters, packages, deposits, memberships, walk-in check-in.",
+    v1_t:"Spa", v1_d:"Packages, therapists, aroma options",
+    v2_t:"Massage", v2_d:"Duration, pressure, therapist gender",
+    v3_t:"Clinic", v3_d:"Doctors, visit types, health records",
+    v4_t:"Dental", v4_d:"Cleaning, ortho, implants, X-ray",
+    v5_t:"Gym", v5_d:"PT, group classes, facilities",
+    v6_t:"Yoga", v6_d:"Hot, aerial, meditation classes",
+    v7_t:"Hair / Nail", v7_d:"Stylists, style preview, add-ons",
+    v8_t:"Aesthetics", v8_d:"Treatment packages, post-care",
+    demo_eyebrow:"Live demo • No login", demo_title:"See your venue, end-to-end.",
+    demo_sub:"Type your real venue name and area. We'll pull the public Google Places profile so you can see exactly what your customers see when they book.",
+    rail_title:"Demo flow",
+    s1_t:"Enter your venue", s1_d:"Name + area",
+    s2_t:"Auto-import profile", s2_d:"Google Places lookup",
+    s3_t:"Pick service & time", s3_d:"Customer's view",
+    s4_t:"Confirm booking", s4_d:"8-second flow",
+    s5_t:"Claim your venue", s5_d:"Go live in 2 min",
+    rail_foot_t:"No data is saved.", rail_foot_d:" This is a sandbox so you can feel the flow before you sign up.",
+    p1_h:"Tell us about your venue", p1_s:"We'll fetch the public Google Places profile so you can see your booking page in seconds.",
+    lbl_name:"Venue name", lbl_city:"City / Area", try:"Or try:", btn_lookup:"Look up my venue",
+    p2_h:"Importing your profile", p2_s:"Calling Google Places API · pulling photos, hours, and address…",
+    loading_msg_a:"Searching Google Places…", loading_msg_b:"Found 1 match — fetching photos…", loading_msg_c:"Reading hours & contact…",
+    loading_sub:"This usually takes about 1 second.",
+    pill_api:"Auto-imported via Google Places", places_attr:"Profile data via Google Places API. You can edit anything before going live.",
+    btn_continue:"Continue → see customer view", btn_retry:"Try a different venue",
+    p3_h:"This is what your customers see", p3_s:"Pick a service, date, and time. Yours will do the same — 70% finish in under 10 seconds.",
+    open_now:"Open now", pick_service:"Pick a service", pick_date:"Pick a date", pick_time:"Pick a time",
+    btn_book:"Confirm booking", picker_hint:"← Pick a date and time first",
+    confirm_h:"Booking confirmed!", confirm_s:"From \"find a venue\" to \"see you tomorrow\" in 8 seconds. That's the experience your customers get.",
+    sum_venue:"Venue", sum_service:"Service", sum_when:"When", sum_status:"Status", sum_confirmed:"Confirmed", sum_cost:"Cut from venue", sum_cost_v:"0% (no commission on bookings)",
+    btn_flip:"Show me the venue side →", flip_h:"Want this booking flow for your venue?",
+    flip_s:"Everything you just experienced — search, profile, service picker, auto-reminders — runs on AAppoint Wellness. HK$0 to start.",
+    btn_claim:"Claim my venue",
+    p5_h:"You're 2 minutes from going live", p5_s:"We've already got your profile from Google. Just confirm a few details and your booking page is live.",
+    pill_ready:"Ready to publish", lbl_email:"Your email", lbl_phone:"Phone (for booking alerts)",
+    incl_h:"What you get on day 1:",
+    incl_1:"Branded booking page (your-name.aappoint.me/wellness)",
+    incl_2:"Service menu + therapist rosters",
+    incl_3:"Auto SMS / WhatsApp / email reminders",
+    incl_4:"No-show prevention with deposits + cancellation policy",
+    incl_5:"Memberships + prepaid package management",
+    incl_6:"Just HK$99/year (~$10), 0% commission on bookings, cancel anytime",
+    btn_finish:"Publish my venue (free)", claim_disclaim:"No credit card. No commitment. Live in 2 minutes.",
+    how_eyebrow:"How AAppoint Wellness works", how_title:"From customer to venue, on one platform.",
+    tab_c:"For customers", tab_b:"For venues",
+    hc1_t:"Search by what you want", hc1_d:"\"Causeway Bay, 60-min massage, tonight 7pm.\" AAppoint Wellness shows only venues with that slot actually open.",
+    hc2_t:"Book in 8 seconds", hc2_d:"No app download. No account. Pick a service, tap a slot, type your phone, done.",
+    hc3_t:"Show up — no friction", hc3_d:"SMS / WhatsApp reminder the day before. Reschedule or cancel with one tap.",
+    hb1_t:"Auto-import in 30 seconds", hb1_d:"Type your venue name. Google Places fills in your photos, hours, and address. Edit if you want.",
+    hb2_t:"Set up services & rosters", hb2_d:"Build service menus, therapist rosters, deposit rules, memberships. Templates cover every wellness vertical.",
+    hb3_t:"Watch bookings roll in", hb3_d:"Customers find you in search. You get a clean dashboard, SMS / WhatsApp alerts, and zero no-show drama.",
+    cost_eyebrow:"Transparent pricing • Annual • 0% commission", cost_h:"From just HK$99 a year.",
+    cost_p:"Two simple plans, billed once a year — less than a single specialty coffee. 0% commission on bookings, 2.5% only on E-vouchers.",
+    btn_try_free:"Try it free, no card",
+    per_year:"/year", per_year_2:"/year",
+    bill_yearly:"Billed once a year", bill_yearly_2:"Billed once a year",
+    tier_pop:"For venues ready to scale", tier_start:"Get started", tier_choose:"Choose this plan",
+    t1_n:"Lite", t1_usd:"≈ $10 USD/year · less than HK$0.30 a day",
+    t1_f1:"Unlimited bookings", t1_f2:"Reserve with Google button",
+    t1_f3:"Branded booking page (your-name.aappoint.me/wellness)", t1_f4:"Auto email reminders",
+    t1_f5:"Basic dashboard & reports", t1_f6:"Octopus + WeChat Pay HK",
+    t2_n:"Premium", t2_usd:"≈ $100 USD/year · ~HK$74/month",
+    t2_f1:"<b>Everything in Lite</b>", t2_f2:"Auto SMS + WhatsApp notifications",
+    t2_f3:"AliPay+ (13+ Asian wallets) integration", t2_f4:"Memberships + prepaid packages + deposits",
+    t2_f5:"Therapist rosters + multi-branch capacity", t2_f6:"Priority support in 中文/EN/TH",
+    foot_pricing_b:"Every plan includes:", foot_pricing_p:" 0% commission on bookings · 2.5% on E-vouchers only · cancel anytime · 14-day free trial · WhatsApp notifications free",
+    ch_eye:"Built for Hong Kong workflows",
+    ch_h:"Pay the way your customers already pay.",
+    ch_p:"Native integrations with HK's everyday payment rails and distribution channels — no separate POS, no double setup.",
+    ch_native:"Native", ch_all:"All plans",
+    ch1_h:"Octopus",
+    ch1_p:"Tap-to-pay on arrival. Deposits, packages, retail — all supported. The payment method locals already use everywhere.",
+    ch2_h:"AliPay+",
+    ch2_p:"One QR accepts 13+ Asian wallets: AliPay, AliPay HK, GCash, KakaoPay, TrueMoney, TNG, Bkash, and more — capture every Asian traveler.",
+    ch3_h:"WeChat Pay HK",
+    ch3_p:"Familiar booking + payment flow for mainland customers. Bridges HK and mainland audiences in one UI.",
+    ch4_h:"Reserve with Google",
+    ch4_p:"\"Book Online\" button on Google Search and Maps for HK businesses. Powered by AAppoint.",
+    v_eye:"Demand signal • Anonymous voting",
+    v_h:"Vote for the wellness venues you wish were here.",
+    v_p:"Tell us which spa, massage, clinic, or gym you'd book if it were on AAppoint Wellness. Vote totals stay private — you only see the last 3 digits. The full count goes to the venue as a waiting-list.",
+    v_search_p:"Type a venue name…",
+    v_search_btn:"Cast my vote",
+    v_count_label:"votes ending",
+    v_vote:"Vote", v_voted:"Voted",
+    v_live:"Live", v_live_msg:"Booking is now open. Tap to reserve.",
+    v_book_maps:"Book on Maps",
+    v_explain_h:"How this works",
+    v_explain_1:"You vote for the venues you wish were on AAppoint Wellness.",
+    v_explain_2:"Vote totals stay anonymous — only the last 3 digits are public.",
+    v_explain_3:"Each week we send the venue a report: \"X customers in your area want to book you.\"",
+    v_explain_4:"When the venue joins, the card flips to \"Live\" and takes you straight to the booking page on Google Maps.",
+    v_merchant_h:"Are you a venue owner?",
+    v_merchant_p:"See how many customers are voting for your venue — claim it in 2 minutes and turn demand into bookings on day 1.",
+    v_merchant_btn:"Check my venue",
+    v_toast_main:"vote registered",
+    v_toast_sub:"Anonymous · only the last 3 digits are public · full count goes to the venue",
+    m_h:"Thanks for voting! Meet Agent Gita",
+    m_sub:"AI assistant that helps your venue answer customers 24/7",
+    m_fb_h:"This page can't be embedded",
+    m_fb_p:"agentgita.com sets a security header that prevents embedding in other sites. Open it in a new tab to explore.",
+    m_fb_btn:"Open in new tab →",
+    m_foot:"Your vote is registered. While we collect votes, check out this tool.",
+    m_foot_link:"Open full screen →",
+    cross_h:"Run a restaurant?", cross_p:"Try <b style=\"color:var(--pink);\">AAppoint</b> — our sister platform in Thailand, purpose-built for dine-in reservations.",
+    cross_btn:"Go to Dining →",
+    foot_h:"Easy. Comfortable. Practically free.",
+    foot_p:"You just experienced the customer side. Spin up your venue in 2 minutes — same flow, your name on it.",
+    foot_btn:"Start with the demo",
+    legal_op:"Appointment Anywhere Happiness Kindness Company Limited",
+    legal_reg:"Hong Kong B/R No. 38368397",
+    legal_addr:"Office 4, 10/F, Kwan Chart Tower, No. 6 Tonnochy Road, Wanchai, Hong Kong",
+    f_terms:"Terms", f_privacy:"Privacy", f_contact:"Contact", f_dine:"AAppoint (Dining) ↗"
+  },
+  th: {
+    nav_demo:"เดโม", nav_how:"ใช้งานยังไง", nav_pricing:"ราคา", nav_dine:"ร้านอาหาร ↗", nav_cta:"ลองเดโม",
+    kicker:"เดโมสด • ไม่ต้องสมัคร • ฮ่องกง",
+    h1_a:"ลองจองสปาดู", h1_b:"แล้วเปิดธุรกิจ", h1_c:"เวลล์เนสของคุณเอง",
+    hero_sub:"สัมผัสขั้นตอนการจองแบบที่ลูกค้าเห็นจริง ๆ ที่สปา ร้านนวด คลินิก ฟิตเนส ถ้ารู้สึกว่า ง่าย สบาย และคุ้มค่าอย่างไม่น่าเชื่อ — เปิดร้านของคุณภายใน 2 นาที",
+    cta_demo:"ลองเดโมเลย", cta_how:"ดูว่าทำงานยังไง",
+    meta_min:"นาที", meta_setup:"ในการตั้งค่า", meta_commission:"หักจากการจอง", meta_venues:"GDP ฮ่องกงโต · ตลาดเวลล์เนส", meta_start_v:"HK$99/ปี (~$10)",
+    fb_easy:"จองได้ใน 8 วินาที", fb_cost:"HK$99/ปี เท่านั้น",
+    ph_loc:"ฮ่องกง • คืนนี้", ph_title:"หาสปา/นวด/คลินิก/ฟิตเนสใกล้คุณ", ph_search:"สปา นวด โยคะ คลินิก…",
+    p1_t:"ง่าย", p1_d:"เลิก App Fatigue. AAppoint แทนแอป 5–7 ตัวที่ลูกค้าต้องสลับใช้ทุกวัน ลูกค้าจองใน 8 วินาที คุณตั้งร้านใน 2 นาที",
+    p2_t:"สบาย", p2_d:"AI แนะนำร้านของคุณให้ลูกค้าตามตำแหน่งและความตั้งใจ — บวกแจ้งเตือนอัตโนมัติช่วยลด no-show ถึง 70%",
+    brand_line:"แพลตฟอร์มเดียว สู่โอกาสไม่มีขีดจำกัด",
+    p3_t:"คุ้ม", p3_d:"HK$99/ปี (~$10 USD) — น้อยกว่า HK$0.30 ต่อวัน 0% คอมมิชชั่นการจอง คิด 2.5% เฉพาะ E-voucher",
+    vert_eye:"ออกแบบเพื่ออุตสาหกรรมเวลล์เนส", vert_h:"ไม่ใช่แค่ระบบจอง — แต่เป็นหลังบ้านครบวงจร",
+    vert_p:"แต่ละธุรกิจมีเวิร์กโฟลว์เฉพาะ: เมนูบริการ ตารางหมอนวด แพ็กเกจ มัดจำ สมาชิก เช็กอินหน้าร้าน",
+    v1_t:"สปา Spa", v1_d:"แพ็กเกจ เลือกหมอนวด น้ำมัน",
+    v2_t:"นวด Massage", v2_d:"ระยะเวลา น้ำหนักมือ เพศ",
+    v3_t:"คลินิก Clinic", v3_d:"แพทย์ ประเภทเคส ประวัติ",
+    v4_t:"ทันตกรรม Dental", v4_d:"ขูดหินปูน จัดฟัน รากเทียม X-ray",
+    v5_t:"ฟิตเนส Gym", v5_d:"PT คลาสกลุ่ม สิ่งอำนวยความสะดวก",
+    v6_t:"โยคะ Yoga", v6_d:"ฮอตโยคะ แอเรียล สมาธิ",
+    v7_t:"ทำผม / ทำเล็บ", v7_d:"ช่าง พรีวิวสไตล์ บริการเสริม",
+    v8_t:"ความงาม Aesthetics", v8_d:"แพ็กเกจ ติดตามหลังทำ",
+    demo_eyebrow:"เดโมสด • ไม่ต้องล็อกอิน", demo_title:"เห็นร้านของคุณจริง ๆ ตั้งแต่ต้นจนจบ",
+    demo_sub:"พิมพ์ชื่อร้านและย่าน เราจะดึงโปรไฟล์สาธารณะจาก Google Places ให้ดูทันทีว่าหน้าจองของลูกค้าจะเป็นยังไง",
+    rail_title:"ขั้นตอนเดโม",
+    s1_t:"กรอกชื่อร้าน", s1_d:"ชื่อ + ย่าน",
+    s2_t:"นำเข้าโปรไฟล์อัตโนมัติ", s2_d:"Google Places lookup",
+    s3_t:"เลือกบริการและเวลา", s3_d:"มุมมองลูกค้า",
+    s4_t:"ยืนยันการจอง", s4_d:"ใช้เวลา 8 วินาที",
+    s5_t:"เปิดร้านของคุณ", s5_d:"พร้อมใช้งานใน 2 นาที",
+    rail_foot_t:"ไม่บันทึกข้อมูลใด ๆ", rail_foot_d:" เป็นแค่ตัวอย่างให้คุณรู้สึกถึงขั้นตอนก่อนสมัคร",
+    p1_h:"บอกเราเกี่ยวกับร้านของคุณ", p1_s:"เราจะดึงโปรไฟล์สาธารณะจาก Google Places เพื่อให้คุณเห็นหน้าจองในไม่กี่วินาที",
+    lbl_name:"ชื่อร้าน", lbl_city:"เมือง / ย่าน", try:"หรือลอง:", btn_lookup:"ค้นหาร้านของฉัน",
+    p2_h:"กำลังนำเข้าโปรไฟล์", p2_s:"เรียก Google Places API · กำลังดึงรูป เวลาเปิด-ปิด และที่อยู่…",
+    loading_msg_a:"กำลังค้นหาใน Google Places…", loading_msg_b:"พบ 1 ร้าน — กำลังดึงรูปภาพ…", loading_msg_c:"กำลังอ่านเวลาทำการและช่องทางติดต่อ…",
+    loading_sub:"ปกติใช้เวลาประมาณ 1 วินาที",
+    pill_api:"นำเข้าจาก Google Places", places_attr:"ข้อมูลจาก Google Places API คุณสามารถแก้ไขได้ทุกอย่างก่อนเปิดใช้งาน",
+    btn_continue:"ต่อไป → ดูมุมมองลูกค้า", btn_retry:"ลองร้านอื่น",
+    p3_h:"นี่คือสิ่งที่ลูกค้าของคุณเห็น", p3_s:"เลือกบริการ วันและเวลา ลูกค้าก็ทำแบบเดียวกัน — 70% จองเสร็จใน 10 วินาที",
+    open_now:"เปิดอยู่", pick_service:"เลือกบริการ", pick_date:"เลือกวัน", pick_time:"เลือกเวลา",
+    btn_book:"ยืนยันการจอง", picker_hint:"← เลือกวันและเวลาก่อน",
+    confirm_h:"จองสำเร็จ!", confirm_s:"จาก \"หาร้าน\" ถึง \"เจอกันพรุ่งนี้\" ภายใน 8 วินาที",
+    sum_venue:"ร้าน", sum_service:"บริการ", sum_when:"เวลา", sum_status:"สถานะ", sum_confirmed:"ยืนยันแล้ว", sum_cost:"หักจากร้าน", sum_cost_v:"0% (ไม่หักจากการจอง)",
+    btn_flip:"ดูฝั่งร้านบ้าง →", flip_h:"อยากให้ร้านของคุณมีระบบจองแบบนี้ไหม?",
+    flip_s:"ทุกอย่างที่คุณเพิ่งทดลอง ทำงานบน AAppoint Wellness เริ่มต้น HK$0",
+    btn_claim:"เปิดร้านของฉัน",
+    p5_h:"อีก 2 นาที ร้านคุณก็พร้อมรับจอง", p5_s:"เราดึงโปรไฟล์ของคุณจาก Google มาแล้ว แค่ยืนยันรายละเอียดเล็กน้อย หน้าจองก็พร้อมใช้งาน",
+    pill_ready:"พร้อมเผยแพร่", lbl_email:"อีเมลของคุณ", lbl_phone:"เบอร์โทร (รับแจ้งเตือนการจอง)",
+    incl_h:"สิ่งที่คุณได้รับวันแรก:",
+    incl_1:"หน้าจองที่มีแบรนด์ของคุณ (your-name.aappoint.me/wellness)",
+    incl_2:"เมนูบริการ + ตารางหมอนวด/ช่าง",
+    incl_3:"แจ้งเตือนอัตโนมัติทาง SMS / WhatsApp / อีเมล",
+    incl_4:"มัดจำกัน no-show + นโยบายยกเลิก",
+    incl_5:"ระบบสมาชิก + แพ็กเกจจ่ายล่วงหน้า",
+    incl_6:"HK$99/ปี เท่านั้น (~$10), 0% คอมมิชชั่นการจอง, ยกเลิกเมื่อไรก็ได้",
+    btn_finish:"เปิดร้านของฉัน (ฟรี)", claim_disclaim:"ไม่ต้องใช้บัตรเครดิต ไม่มีข้อผูกมัด พร้อมใช้งานใน 2 นาที",
+    how_eyebrow:"AAppoint Wellness ทำงานยังไง", how_title:"จากลูกค้าสู่ร้าน บนแพลตฟอร์มเดียว",
+    tab_c:"สำหรับลูกค้า", tab_b:"สำหรับร้าน",
+    hc1_t:"ค้นหาตามที่ต้องการ", hc1_d:"\"นวด 60 นาที คอสเวย์เบย์ ทุ่มนึงคืนนี้\" AAppoint Wellness แสดงเฉพาะร้านที่มีคิวว่างเวลานั้น",
+    hc2_t:"จองใน 8 วินาที", hc2_d:"ไม่ต้องโหลดแอป ไม่ต้องสมัคร เลือกบริการ แตะเวลา พิมพ์เบอร์ เสร็จ",
+    hc3_t:"ไปถึงแบบไม่มีปัญหา", hc3_d:"SMS / WhatsApp เตือนวันก่อนหน้า เลื่อนหรือยกเลิกได้ในแตะเดียว",
+    hb1_t:"นำเข้าอัตโนมัติใน 30 วินาที", hb1_d:"พิมพ์ชื่อร้าน Google Places จะดึงรูป เวลาเปิด และที่อยู่ให้",
+    hb2_t:"ตั้งบริการและตารางพนักงาน", hb2_d:"สร้างเมนูบริการ ตารางช่าง กฎมัดจำ ระบบสมาชิก เทมเพลตครอบคลุมทุกธุรกิจเวลล์เนส",
+    hb3_t:"นั่งดูจองเข้ามา", hb3_d:"ลูกค้าหาร้านคุณเจอ คุณได้แดชบอร์ดสะอาด แจ้งเตือน SMS / WhatsApp และไม่มี no-show",
+    cost_eyebrow:"ราคาโปร่งใส • รายปี • 0% คอมมิชชั่น", cost_h:"เริ่มที่ HK$99 ต่อปี เท่านั้น",
+    cost_p:"เลือก 2 แพ็กเกจ จ่ายครั้งเดียวต่อปี — ถูกกว่ากาแฟพรีเมียมหนึ่งแก้ว 0% คอมมิชชั่นการจอง คิด 2.5% เฉพาะ E-voucher",
+    btn_try_free:"ลองใช้ฟรี ไม่ต้องใช้บัตร",
+    per_year:"/ปี", per_year_2:"/ปี",
+    bill_yearly:"เรียกเก็บครั้งเดียวต่อปี", bill_yearly_2:"เรียกเก็บครั้งเดียวต่อปี",
+    tier_pop:"เหมาะกับร้านที่ตั้งใจโต", tier_start:"เริ่มต้นใช้งาน", tier_choose:"เลือกแพ็กเกจนี้",
+    t1_n:"Lite", t1_usd:"≈ $10 USD ต่อปี · น้อยกว่า HK$0.30/วัน",
+    t1_f1:"รับจองไม่จำกัด", t1_f2:"ปุ่ม Reserve with Google",
+    t1_f3:"หน้าจองที่มีแบรนด์ (your-name.aappoint.me/wellness)", t1_f4:"แจ้งเตือนทางอีเมลอัตโนมัติ",
+    t1_f5:"แดชบอร์ดและรายงานพื้นฐาน", t1_f6:"Octopus + WeChat Pay HK",
+    t2_n:"Premium", t2_usd:"≈ $100 USD ต่อปี · ~HK$74/เดือน",
+    t2_f1:"<b>ทุกอย่างที่อยู่ใน Lite</b>", t2_f2:"SMS + WhatsApp อัตโนมัติ",
+    t2_f3:"AliPay+ (13+ กระเป๋าเงินเอเชีย)", t2_f4:"สมาชิก + แพ็กเกจจ่ายล่วงหน้า + มัดจำ",
+    t2_f5:"ตารางช่าง + จัดการความจุหลายสาขา", t2_f6:"ซัพพอร์ตจีน/อังกฤษ/ไทย Priority",
+    foot_pricing_b:"ทุกแพ็กเกจรวม:", foot_pricing_p:" 0% คอมมิชชั่นการจอง · 2.5% เฉพาะ E-voucher · ยกเลิกได้ทุกเมื่อ · ทดลอง 14 วันฟรี · WhatsApp ฟรี",
+    ch_eye:"ออกแบบสำหรับฮ่องกงโดยเฉพาะ",
+    ch_h:"ลูกค้าจ่ายแบบไหน เรารองรับแบบนั้น",
+    ch_p:"เชื่อมต่อระบบจ่ายเงินและช่องทางที่คนฮ่องกงใช้ในชีวิตประจำวัน — ไม่ต้องใช้ POS แยก ไม่ต้องตั้งค่าซ้ำ",
+    ch_native:"เชื่อมต่อตรง", ch_all:"ทุกแพ็กเกจ",
+    ch1_h:"Octopus 八達通",
+    ch1_p:"แตะจ่ายที่หน้าร้าน รองรับมัดจำ แพ็กเกจ สินค้า — วิธีจ่ายที่คนฮ่องกงใช้ทุกที่",
+    ch2_h:"AliPay+",
+    ch2_p:"QR เดียวรับ 13+ กระเป๋าเงินทั่วเอเชีย: AliPay, AliPay HK, GCash, KakaoPay, TrueMoney, TNG, Bkash และอื่น ๆ ครอบคลุมนักท่องเที่ยวเอเชียทั้งหมด",
+    ch3_h:"WeChat Pay HK",
+    ch3_p:"ขั้นตอนจองและจ่ายแบบที่ลูกค้าจีนคุ้นเคย เชื่อมตลาดฮ่องกงและจีนแผ่นดินใหญ่",
+    ch4_h:"Reserve with Google",
+    ch4_p:"ปุ่ม \"จองออนไลน์\" บน Google Search และ Maps ในฮ่องกง ขับเคลื่อนโดย AAppoint",
+    v_eye:"สัญญาณความต้องการ • โหวตแบบไม่ระบุตัวตน",
+    v_h:"โหวตร้านเวลล์เนสที่คุณอยากจองมากที่สุด",
+    v_p:"บอกเราว่าคุณอยากให้สปา ร้านนวด คลินิก ฟิตเนส หรือโยคะร้านไหนมาเปิดรับจองบน AAppoint Wellness ยอดโหวตเป็นความลับ คุณเห็นแค่ 3 หลักสุดท้าย ส่วนยอดรวมส่งให้ร้านพร้อมรายชื่อรอจอง",
+    v_search_p:"พิมพ์ชื่อร้านที่คุณอยากให้มาเปิด...",
+    v_search_btn:"ส่งโหวต",
+    v_count_label:"คะแนนลงท้ายด้วย",
+    v_vote:"โหวต", v_voted:"โหวตแล้ว",
+    v_live:"เปิดรับจอง", v_live_msg:"เปิดรับจองแล้ว แตะเพื่อจอง",
+    v_book_maps:"จองบน Google Maps",
+    v_explain_h:"ระบบทำงานยังไง",
+    v_explain_1:"คุณโหวตร้านที่อยากให้มาเปิดบน AAppoint Wellness",
+    v_explain_2:"ยอดโหวตเป็นความลับ คุณเห็นแค่ 3 หลักสุดท้าย",
+    v_explain_3:"ทุกสัปดาห์ เราส่งรายงานให้ร้าน: \"มีลูกค้า X คนในย่านนี้อยากจองคุณ\"",
+    v_explain_4:"เมื่อร้านเปิดรับจอง ระบบจะเปลี่ยนการ์ดเป็น \"เปิดรับจอง\" และพาคุณไปหน้าจองบน Google Maps ได้ทันที",
+    v_merchant_h:"เป็นเจ้าของร้าน?",
+    v_merchant_p:"ดูว่ามีลูกค้าโหวตให้ร้านคุณกี่คน — เปิดรับจองใน 2 นาที แปลงคะแนนเป็นการจองทันที",
+    v_merchant_btn:"ดูคะแนนของร้านฉัน",
+    v_toast_main:"การโหวตของคุณถูกบันทึกแล้ว",
+    v_toast_sub:"ไม่ระบุตัวตน · เห็นแค่ 3 หลักสุดท้าย ยอดรวมส่งให้ร้าน",
+    m_h:"ขอบคุณที่โหวต! แนะนำ Agent Gita",
+    m_sub:"ผู้ช่วย AI ที่จะช่วยร้านของคุณตอบลูกค้าตลอด 24 ชั่วโมง",
+    m_fb_h:"หน้านี้ไม่อนุญาตให้ฝัง",
+    m_fb_p:"เว็บไซต์ agentgita.com ตั้งค่าไม่ให้ฝังในหน้าเว็บอื่น เปิดในแท็บใหม่เพื่อดู",
+    m_fb_btn:"เปิดในแท็บใหม่ →",
+    m_foot:"การโหวตของคุณถูกบันทึกแล้ว ระหว่างที่เรารวบรวมโหวต ลองดูเครื่องมือนี้",
+    m_foot_link:"เปิดเต็มหน้าจอ →",
+    cross_h:"ทำร้านอาหาร?", cross_p:"ลอง <b style=\"color:var(--pink);\">AAppoint</b> — แพลตฟอร์มน้องของเราในไทย ออกแบบสำหรับร้านอาหารโดยเฉพาะ",
+    cross_btn:"ไปที่ Dining →",
+    foot_h:"ง่าย สบาย แทบจะฟรี",
+    foot_p:"คุณเพิ่งสัมผัสฝั่งลูกค้า เปิดร้านของคุณใน 2 นาที — ขั้นตอนเดียวกัน แต่เป็นชื่อร้านคุณ",
+    foot_btn:"เริ่มจากเดโม",
+    legal_op:"Appointment Anywhere Happiness Kindness Company Limited",
+    legal_reg:"เลขทะเบียนธุรกิจฮ่องกง 38368397",
+    legal_addr:"Office 4, 10/F, Kwan Chart Tower, No. 6 Tonnochy Road, Wanchai, Hong Kong",
+    f_terms:"ข้อกำหนด", f_privacy:"ความเป็นส่วนตัว", f_contact:"ติดต่อ", f_dine:"AAppoint (ร้านอาหาร) ↗"
+  }
+};
+
+/* ===== Mock Google Places venues — Hong Kong wellness ===== */
+const VENUES = [
+  {keys:["plateau","plateau spa","grand hyatt"], emoji:"💆", category:{en:"Luxury Spa",th:"สปาหรู",zh:"豪華水療"},
+   gradient:"linear-gradient(135deg,#1AAEA8,#0a4f51)",
+   addr:{en:"Grand Hyatt, 1 Harbour Rd, Wan Chai, HK",th:"แกรนด์ ไฮแอท 1 ฮาร์เบอร์ โร้ด ว่านไจ้ ฮ่องกง",zh:"香港 灣仔 港灣道 1 號 香港君悅酒店"},
+   rating:"4.8 (612)", price:"$$$$",
+   hours:{en:"7:00 AM – 11:00 PM",th:"07:00 – 23:00",zh:"上午7:00 – 晚上11:00"},
+   desc:{en:"Award-winning spa atop Grand Hyatt with harbour views.",th:"สปาที่ได้รับรางวัล วิวอ่าวฮ่องกง",zh:"獲獎水療，俯瞰維多利亞港"},
+   services:[{n:"Aroma Massage 60min",p:"HK$1,800"},{n:"Hot Stone 90min",p:"HK$2,400"},{n:"Couple's Ritual",p:"HK$5,200"},{n:"Facial 60min",p:"HK$1,600"}],
+   slots:["10:00","11:00","12:00","14:00","15:00","16:00","17:30","19:00","20:00"]},
+  {keys:["pure yoga","pure"], emoji:"🧘", category:{en:"Yoga Studio",th:"สตูดิโอโยคะ",zh:"瑜伽工作室"},
+   gradient:"linear-gradient(135deg,#a78bfa,#5b21b6)",
+   addr:{en:"The ONE, 100 Nathan Rd, Tsim Sha Tsui, HK",th:"ดิ วัน นาธาน โร้ด จิมซาจุ่ย ฮ่องกง",zh:"香港 尖沙咀 彌敦道 100 號 The ONE"},
+   rating:"4.6 (2,820)", price:"$$",
+   hours:{en:"6:00 AM – 11:00 PM",th:"06:00 – 23:00",zh:"上午6:00 – 晚上11:00"},
+   desc:{en:"Premium yoga studio with hot, aerial, and meditation classes.",th:"สตูดิโอพรีเมียม ฮอตโยคะ แอเรียล สมาธิ",zh:"高級瑜伽工作室，提供熱瑜伽、空中、冥想課程"},
+   services:[{n:"Hot Vinyasa 75min",p:"HK$280"},{n:"Aerial Yoga 60min",p:"HK$320"},{n:"Beginner Hatha 60min",p:"HK$240"},{n:"10-class Pack",p:"HK$2,200"}],
+   slots:["07:00","08:30","12:30","17:30","18:30","19:30","20:30"]},
+  {keys:["ten feet tall","tenfeet"], emoji:"👣", category:{en:"Foot Massage",th:"นวดเท้า",zh:"足部按摩"},
+   gradient:"linear-gradient(135deg,#f59e0b,#92400e)",
+   addr:{en:"L'hotel, 38 Yiu Wa St, Causeway Bay, HK",th:"แอลโฮเทล 38 ยู หว่า สตรีท คอสเวย์เบย์ ฮ่องกง",zh:"香港 銅鑼灣 耀華街 38 號 麗悅酒店"},
+   rating:"4.5 (4,108)", price:"$$",
+   hours:{en:"11:00 AM – 1:00 AM",th:"11:00 – 01:00",zh:"上午11:00 – 凌晨1:00"},
+   desc:{en:"Reflexology specialists, late-night sessions available.",th:"ผู้เชี่ยวชาญนวดเท้า มีรอบดึก",zh:"足部反射療法專家，提供深夜時段"},
+   services:[{n:"Foot Massage 60min",p:"HK$298"},{n:"Foot + Shoulder 90min",p:"HK$458"},{n:"Body Massage 60min",p:"HK$398"},{n:"VIP Room 90min",p:"HK$598"}],
+   slots:["12:00","13:30","15:00","17:00","19:00","20:30","22:00","23:00"]},
+  {keys:["smile","smile central","dental"], emoji:"🦷", category:{en:"Dental Clinic",th:"คลินิกทันตกรรม",zh:"牙科診所"},
+   gradient:"linear-gradient(135deg,#60a5fa,#1e40af)",
+   addr:{en:"IFC Mall, 8 Finance St, Central, HK",th:"ไอเอฟซี มอลล์ 8 ไฟแนนซ์ สตรีท เซ็นทรัล ฮ่องกง",zh:"香港 中環 金融街 8 號 國際金融中心商場"},
+   rating:"4.9 (892)", price:"$$$",
+   hours:{en:"9:00 AM – 8:00 PM",th:"09:00 – 20:00",zh:"上午9:00 – 晚上8:00"},
+   desc:{en:"Modern dental practice. Cantonese, English, Mandarin.",th:"คลินิกสมัยใหม่ บริการ 3 ภาษา",zh:"現代牙科診所，提供粵/英/普通話服務"},
+   services:[{n:"Cleaning + X-ray",p:"HK$880"},{n:"Whitening Pro",p:"HK$3,800"},{n:"Invisalign Consult",p:"Free"},{n:"Wisdom Tooth",p:"HK$2,800"}],
+   slots:["09:00","10:30","11:30","14:00","15:30","16:30","17:30","18:30"]},
+  {keys:["pure fitness","fitness"], emoji:"🏋️", category:{en:"Premium Gym",th:"ฟิตเนสพรีเมียม",zh:"高級健身"},
+   gradient:"linear-gradient(135deg,#1f2937,#dc2626)",
+   addr:{en:"Asia Standard Tower, Central, HK",th:"เอเชีย สแตนดาร์ด ทาวเวอร์ เซ็นทรัล ฮ่องกง",zh:"香港 中環 泛海大廈"},
+   rating:"4.4 (3,420)", price:"$$$",
+   hours:{en:"6:00 AM – 11:00 PM",th:"06:00 – 23:00",zh:"上午6:00 – 晚上11:00"},
+   desc:{en:"Full-service gym with PT and group classes.",th:"ฟิตเนสครบครัน มีเทรนเนอร์และคลาสกลุ่ม",zh:"全方位健身中心，提供私人教練與團體課"},
+   services:[{n:"Day Pass",p:"HK$300"},{n:"PT Session 60min",p:"HK$880"},{n:"Group Class",p:"HK$180"},{n:"Body Composition",p:"HK$280"}],
+   slots:["07:00","08:00","09:00","12:00","13:00","17:00","18:00","19:00","20:00"]},
+  {keys:["sun hing lung","sun hing","massage"], emoji:"💆", category:{en:"Traditional Massage",th:"นวดแผนโบราณ",zh:"傳統按摩"},
+   gradient:"linear-gradient(135deg,#dc2626,#7f1d1d)",
+   addr:{en:"Mong Kok, Kowloon, HK",th:"มงก๊ก เกาลูน ฮ่องกง",zh:"香港 九龍 旺角"},
+   rating:"4.6 (5,210)", price:"$",
+   hours:{en:"11:00 AM – 12:00 AM",th:"11:00 – 24:00",zh:"上午11:00 – 午夜"},
+   desc:{en:"No-frills traditional Chinese massage, locals' favourite.",th:"นวดแผนจีนแบบดั้งเดิม ที่คนท้องถิ่นชื่นชอบ",zh:"地道中式傳統按摩，本地人最愛"},
+   services:[{n:"Tui Na 60min",p:"HK$258"},{n:"Cupping",p:"HK$188"},{n:"Foot Reflexology 45min",p:"HK$208"},{n:"Combo 90min",p:"HK$388"}],
+   slots:["12:00","13:30","15:00","17:00","18:30","20:00","21:30","23:00"]},
+  {keys:["mira","mira spa"], emoji:"✨", category:{en:"Hotel Spa",th:"สปาในโรงแรม",zh:"酒店水療"},
+   gradient:"linear-gradient(135deg,#ec4899,#831843)",
+   addr:{en:"The Mira, 118 Nathan Rd, Tsim Sha Tsui, HK",th:"เดอะมิรา 118 นาธาน โร้ด จิมซาจุ่ย ฮ่องกง",zh:"香港 尖沙咀 彌敦道 118 號 美麗華酒店"},
+   rating:"4.7 (1,108)", price:"$$$",
+   hours:{en:"10:00 AM – 11:00 PM",th:"10:00 – 23:00",zh:"上午10:00 – 晚上11:00"},
+   desc:{en:"Modern boutique spa with signature treatments.",th:"สปาบูทีคทันสมัย พร้อมทรีทเมนต์ซิกเนเจอร์",zh:"現代精品水療，獨家招牌療程"},
+   services:[{n:"Signature Ritual 90min",p:"HK$1,680"},{n:"Express 45min",p:"HK$880"},{n:"Couples Suite",p:"HK$3,800"},{n:"Facial 75min",p:"HK$1,480"}],
+   slots:["11:00","12:30","14:00","15:30","17:00","18:30","20:00","21:00"]},
+  {keys:["nail","nail bar"], emoji:"💅", category:{en:"Nail Bar",th:"ร้านทำเล็บ",zh:"美甲店"},
+   gradient:"linear-gradient(135deg,#f9a8d4,#be185d)",
+   addr:{en:"Soho, Central, HK",th:"โซโห เซ็นทรัล ฮ่องกง",zh:"香港 中環 蘇豪"},
+   rating:"4.5 (618)", price:"$$",
+   hours:{en:"11:00 AM – 9:00 PM",th:"11:00 – 21:00",zh:"上午11:00 – 晚上9:00"},
+   desc:{en:"Cosy nail studio specialising in Japanese gel and nail art.",th:"ร้านอบอุ่น เน้นเจลและนีลอาร์ทแบบญี่ปุ่น",zh:"溫馨美甲店，專長日式凝膠與美甲彩繪"},
+   services:[{n:"Classic Manicure",p:"HK$280"},{n:"Gel Manicure",p:"HK$420"},{n:"Spa Pedicure",p:"HK$480"},{n:"Nail Art Add-on",p:"HK$80+"}],
+   slots:["11:30","13:00","14:30","16:00","17:30","19:00","20:00"]}
+];
+
+const SUGGESTIONS = [
+  {n:"Plateau Spa", c:"Wan Chai"},
+  {n:"Pure Yoga", c:"Tsim Sha Tsui"},
+  {n:"Ten Feet Tall", c:"Causeway Bay"},
+  {n:"Smile Central", c:"Central"},
+  {n:"Pure Fitness", c:"Central"}
+];
+
+let lang = "zh-TW";
+let currentVenue = null;
+let pickedDate = null;
+let pickedTime = null;
+let pickedService = null;
+
+function applyLang(l){
+  lang = l;
+  document.documentElement.setAttribute("lang", l);
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if(I18N[l] && I18N[l][key]){
+      if(I18N[l][key].includes("<")) el.innerHTML = I18N[l][key];
+      else el.textContent = I18N[l][key];
+    }
+  });
+  document.querySelectorAll(".lang button").forEach(b=>b.classList.toggle("on", b.dataset.lang===l));
+  if(currentVenue){renderVenueCards(); buildServices();}
+  buildDates();
+}
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>applyLang(b.dataset.lang)));
+
+function setTab(t){
+  document.querySelectorAll(".how-tab").forEach(el=>el.classList.toggle("on", el.dataset.tab===t));
+  document.getElementById("howGridC").classList.toggle("hidden", t!=="c");
+  document.getElementById("howGridB").classList.toggle("hidden", t!=="b");
+}
+
+const sugBox = document.getElementById("suggestions");
+SUGGESTIONS.forEach(s=>{
+  const b=document.createElement("button"); b.className="chip"; b.textContent=s.n;
+  b.addEventListener("click",()=>{
+    document.getElementById("vname").value=s.n;
+    document.getElementById("vloc").value=s.c;
+    lookupVenue();
+  });
+  sugBox.appendChild(b);
+});
+
+function goStep(n){
+  document.querySelectorAll(".pane").forEach(p=>p.classList.toggle("on", +p.dataset.pane===n));
+  document.querySelectorAll(".step").forEach(s=>{
+    const k=+s.dataset.step;
+    s.classList.toggle("on", k===n);
+    s.classList.toggle("done", k<n);
+    const num=s.querySelector(".step-num");
+    num.textContent = k<n ? "✓" : k;
+  });
+  if(n===3){buildDates(); buildServices();}
+  document.querySelector(".demo-stage").scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function fuzzyFind(name){
+  const q=(name||"").toLowerCase().trim();
+  if(!q) return null;
+  for(const v of VENUES) for(const k of v.keys) if(q.includes(k)||k.includes(q)) return v;
+  return null;
+}
+function properCase(s){return s.replace(/\b\w/g,c=>c.toUpperCase());}
+function canonicalName(typed){
+  const m={"plateau":"Plateau Spa","pure yoga":"Pure Yoga","ten feet":"Ten Feet Tall","smile":"Smile Central Dental","pure fitness":"Pure Fitness","sun hing":"Sun Hing Lung Massage","mira":"The Mira Spa","nail":"Nail Bar"};
+  const t=typed.toLowerCase();
+  for(const k in m) if(t.includes(k)) return m[k];
+  return properCase(typed);
+}
+
+function generateGenericVenue(name, city){
+  const lname=(name||"").toLowerCase();
+  let category, emoji, gradient, slots, desc, hours, price, services;
+  if(/spa|nai|spa/.test(lname)){
+    category={en:"Spa",th:"สปา",zh:"水療"}; emoji="💆"; gradient="linear-gradient(135deg,#1AAEA8,#0a4f51)";
+    services=[{n:"Aroma Massage 60min",p:"HK$1,200"},{n:"Hot Stone 90min",p:"HK$1,800"},{n:"Facial 60min",p:"HK$1,000"}];
+    slots=["11:00","13:00","15:00","17:00","19:00","20:30"]; price="$$$";
+    desc={en:"Wellness spa.",th:"สปาเพื่อสุขภาพ",zh:"健康水療"};
+    hours={en:"10 AM – 11 PM",th:"10:00 – 23:00",zh:"上午10點 – 晚上11點"};
+  } else if(/massage|按摩|นวด/.test(lname)){
+    category={en:"Massage",th:"นวด",zh:"按摩"}; emoji="👣"; gradient="linear-gradient(135deg,#dc2626,#7f1d1d)";
+    services=[{n:"Foot Massage 60min",p:"HK$280"},{n:"Body Massage 60min",p:"HK$380"},{n:"Combo 90min",p:"HK$480"}];
+    slots=["12:00","14:00","16:00","18:00","20:00","21:30"]; price="$$";
+    desc={en:"Massage parlor.",th:"ร้านนวด",zh:"按摩店"};
+    hours={en:"11 AM – 12 AM",th:"11:00 – 24:00",zh:"上午11點 – 午夜"};
+  } else if(/yoga|พิลา|瑜伽/.test(lname)){
+    category={en:"Yoga",th:"โยคะ",zh:"瑜伽"}; emoji="🧘"; gradient="linear-gradient(135deg,#a78bfa,#5b21b6)";
+    services=[{n:"Vinyasa 60min",p:"HK$240"},{n:"Hot Yoga 75min",p:"HK$280"},{n:"Meditation 45min",p:"HK$200"}];
+    slots=["07:00","09:00","12:00","17:30","19:00","20:30"]; price="$$";
+    desc={en:"Yoga studio.",th:"สตูดิโอโยคะ",zh:"瑜伽工作室"};
+    hours={en:"6 AM – 11 PM",th:"06:00 – 23:00",zh:"上午6點 – 晚上11點"};
+  } else if(/clinic|dental|診所|คลินิก/.test(lname)){
+    category={en:"Clinic",th:"คลินิก",zh:"診所"}; emoji="🩺"; gradient="linear-gradient(135deg,#60a5fa,#1e40af)";
+    services=[{n:"Consultation",p:"HK$680"},{n:"Cleaning",p:"HK$880"},{n:"Health Check",p:"HK$1,800"}];
+    slots=["09:00","10:30","11:30","14:00","15:30","17:00","18:00"]; price="$$$";
+    desc={en:"Healthcare clinic.",th:"คลินิกสุขภาพ",zh:"醫療診所"};
+    hours={en:"9 AM – 7 PM",th:"09:00 – 19:00",zh:"上午9點 – 晚上7點"};
+  } else if(/gym|fitness|ฟิต|健身/.test(lname)){
+    category={en:"Gym",th:"ฟิตเนส",zh:"健身"}; emoji="🏋️"; gradient="linear-gradient(135deg,#1f2937,#dc2626)";
+    services=[{n:"Day Pass",p:"HK$200"},{n:"PT Session",p:"HK$680"},{n:"Group Class",p:"HK$160"}];
+    slots=["07:00","08:00","12:00","17:00","18:30","19:30","20:30"]; price="$$";
+    desc={en:"Fitness center.",th:"ฟิตเนสเซ็นเตอร์",zh:"健身中心"};
+    hours={en:"6 AM – 11 PM",th:"06:00 – 23:00",zh:"上午6點 – 晚上11點"};
+  } else if(/hair|nail|salon|美髮|美甲|ผม|เล็บ/.test(lname)){
+    category={en:"Salon",th:"ซาลอน",zh:"沙龍"}; emoji="💇"; gradient="linear-gradient(135deg,#f9a8d4,#be185d)";
+    services=[{n:"Cut & Style",p:"HK$480"},{n:"Color",p:"HK$1,200"},{n:"Mani-Pedi",p:"HK$580"}];
+    slots=["11:00","12:30","14:00","15:30","17:00","18:30"]; price="$$";
+    desc={en:"Beauty salon.",th:"ซาลอนความงาม",zh:"美容沙龍"};
+    hours={en:"10 AM – 8 PM",th:"10:00 – 20:00",zh:"上午10點 – 晚上8點"};
+  } else {
+    category={en:"Wellness Venue",th:"ร้านเวลล์เนส",zh:"養生店家"}; emoji="✨"; gradient="linear-gradient(135deg,#ec4899,#831843)";
+    services=[{n:"Standard Service 60min",p:"HK$580"},{n:"Premium 90min",p:"HK$880"},{n:"Express 30min",p:"HK$320"}];
+    slots=["11:00","13:00","15:00","17:00","19:00","20:30"]; price="$$";
+    desc={en:"Wellness venue.",th:"ร้านเวลล์เนส",zh:"養生店家"};
+    hours={en:"10 AM – 9 PM",th:"10:00 – 21:00",zh:"上午10點 – 晚上9點"};
+  }
+  const cleanName=(name||"Your Venue").replace(/\b\w/g,c=>c.toUpperCase());
+  const cityClean=(city||"Hong Kong").trim();
+  return {
+    name:cleanName, isGeneric:true, category, emoji, gradient, slots, price, services,
+    addr:{en:`${cityClean}, Hong Kong`,th:`${cityClean} ฮ่องกง`,zh:`香港 ${cityClean}`},
+    rating:`4.${Math.floor(Math.random()*5)+3} (${Math.floor(Math.random()*900)+120})`,
+    hours, desc
+  };
+}
+
+function lookupVenue(){
+  const name=document.getElementById("vname").value.trim();
+  const city=document.getElementById("vloc").value.trim()||"Hong Kong";
+  if(!name){
+    const el=document.getElementById("vname"); el.focus();
+    el.style.borderColor="var(--pink)";
+    setTimeout(()=>el.style.borderColor="",1200); return;
+  }
+  goStep(2);
+  document.getElementById("loading").classList.remove("hidden");
+  document.getElementById("venueResult").classList.add("hidden");
+  const msgs=[I18N[lang].loading_msg_a, I18N[lang].loading_msg_b, I18N[lang].loading_msg_c];
+  document.getElementById("loadingMsg").textContent=msgs[0];
+  setTimeout(()=>document.getElementById("loadingMsg").textContent=msgs[1],700);
+  setTimeout(()=>document.getElementById("loadingMsg").textContent=msgs[2],1300);
+  setTimeout(()=>{
+    const found=fuzzyFind(name);
+    currentVenue = found ? {...found, name:canonicalName(name)} : generateGenericVenue(name,city);
+    renderVenueCards();
+    document.getElementById("loading").classList.add("hidden");
+    document.getElementById("venueResult").classList.remove("hidden");
+  },1900);
+}
+
+function renderVenueCards(){
+  if(!currentVenue) return;
+  const v=currentVenue;
+  const langKey = lang==="th"?"th":(lang==="zh-TW"?"zh":"en");
+  const cat=v.category[langKey], addr=v.addr[langKey], hrs=v.hours[langKey], desc=v.desc[langKey];
+  const photo=document.getElementById("vPhoto"); photo.style.background=v.gradient; photo.textContent=v.emoji;
+  document.getElementById("vCategory").textContent=cat;
+  document.getElementById("vTitle").textContent=v.name;
+  document.getElementById("vAddr").textContent=addr;
+  document.getElementById("vRating").textContent=v.rating;
+  document.getElementById("vHours").textContent=hrs;
+  document.getElementById("vPrice").textContent=v.price||"$$";
+  document.getElementById("vDesc").textContent=desc;
+  const p2=document.getElementById("vPhoto2"); p2.style.background=v.gradient; p2.textContent=v.emoji;
+  document.getElementById("vTitle2").textContent=v.name;
+  document.getElementById("vAddr2").textContent=addr;
+  const p3=document.getElementById("vPhoto3"); p3.style.background=v.gradient; p3.textContent=v.emoji;
+  document.getElementById("vTitle3").textContent=v.name;
+  document.getElementById("vAddr3").textContent=addr;
+  document.getElementById("sumVenue").textContent=v.name;
+}
+
+function buildServices(){
+  const el=document.getElementById("services"); if(!el) return;
+  el.innerHTML="";
+  const services=(currentVenue&&currentVenue.services)||[{n:"Standard 60min",p:"HK$580"}];
+  services.forEach((s,i)=>{
+    const b=document.createElement("button");
+    b.className="svc-btn";
+    if(i===0){b.classList.add("on"); pickedService=s;}
+    b.innerHTML=`${s.n} <span style="opacity:.7;font-weight:500;margin-left:4px;">${s.p}</span>`;
+    b.addEventListener("click",()=>{
+      el.querySelectorAll(".svc-btn").forEach(x=>x.classList.remove("on"));
+      b.classList.add("on"); pickedService=s; updateConfirm();
+    });
+    el.appendChild(b);
+  });
+  if(pickedService) document.getElementById("sumService").textContent = pickedService.n;
+}
+
+function buildDates(){
+  const el=document.getElementById("dates"); if(!el) return;
+  el.innerHTML="";
+  const dows={en:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],th:["อา","จ","อ","พ","พฤ","ศ","ส"],"zh-TW":["日","一","二","三","四","五","六"]}[lang]||["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  const today=new Date();
+  for(let i=1;i<=8;i++){
+    const d=new Date(today); d.setDate(today.getDate()+i);
+    const btn=document.createElement("button"); btn.className="date-btn";
+    if(i===2){btn.classList.add("on"); pickedDate=d.toDateString();}
+    btn.innerHTML=`<div class="dow">${dows[d.getDay()]}</div><div class="day">${d.getDate()}</div>`;
+    btn.addEventListener("click",()=>{
+      el.querySelectorAll(".date-btn").forEach(x=>x.classList.remove("on"));
+      btn.classList.add("on"); pickedDate=d.toDateString(); updateConfirm();
+    });
+    el.appendChild(btn);
+  }
+  buildTimes(); updateConfirm();
+}
+function buildTimes(){
+  const el=document.getElementById("times"); if(!el) return;
+  el.innerHTML="";
+  const slots=(currentVenue&&currentVenue.slots)||["10:00","11:00","13:00","15:00","17:00","19:00","20:30"];
+  const full=new Set([1,4]);
+  slots.forEach((t,i)=>{
+    const btn=document.createElement("button"); btn.className="time-btn"; btn.textContent=t;
+    if(full.has(i)){btn.classList.add("full"); btn.disabled=true;}
+    btn.addEventListener("click",()=>{
+      if(btn.disabled) return;
+      el.querySelectorAll(".time-btn").forEach(x=>x.classList.remove("on"));
+      btn.classList.add("on"); pickedTime=t; updateConfirm();
+    });
+    el.appendChild(btn);
+  });
+}
+function updateConfirm(){
+  const ok=pickedDate&&pickedTime&&pickedService;
+  const btn=document.getElementById("confirmBtn"), hint=document.getElementById("pickerHint");
+  if(ok){
+    btn.disabled=false; btn.style.opacity=1; btn.style.cursor="pointer"; hint.style.display="none";
+    const dt=new Date(pickedDate);
+    const fmt={en:dt.toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"}),th:dt.toLocaleDateString("th-TH",{weekday:"short",month:"short",day:"numeric"}),"zh-TW":dt.toLocaleDateString("zh-TW",{weekday:"short",month:"short",day:"numeric"})}[lang];
+    document.getElementById("sumWhen").textContent = `${fmt} · ${pickedTime}`;
+    if(pickedService) document.getElementById("sumService").textContent = pickedService.n;
+  } else {
+    btn.disabled=true; btn.style.opacity=.55; btn.style.cursor="not-allowed"; hint.style.display="";
+  }
+}
+function scrollToDemo(){document.getElementById("demo").scrollIntoView({behavior:"smooth",block:"start"});}
+function finalCelebrate(){
+  const map={en:"Demo complete!\n\nIn a real signup, we'd now:\n• Send a verification email\n• Generate your booking page\n• Set up your service menu & rosters\n\nReady to do this for real?",th:"จบเดโม!\n\nถ้าสมัครจริง เราจะ:\n• ส่งอีเมลยืนยัน\n• สร้างหน้าจองให้คุณ\n• ตั้งเมนูบริการและตารางพนักงาน\n\nพร้อมเริ่มจริงหรือยัง?","zh-TW":"展示結束！\n\n實際註冊時，我們會：\n• 發送驗證郵件\n• 產生您的預約頁\n• 設定您的療程與班表\n\n準備好正式開始了嗎？"};
+  alert(map[lang]||map.en);
+}
+/* ===== Vote / Wishlist feature ===== */
+const voteVenues = [
+  {id:"v1", emoji:"💎", name:"Asaya Spa", area:{th:"โรสวูด",en:"Rosewood, Tsim Sha Tsui",zh:"瑰麗酒店 · 尖沙咀"}, votes:9847, live:false},
+  {id:"v2", emoji:"🌿", name:"The Spa at Mandarin Oriental", area:{th:"เซ็นทรัล",en:"Mandarin Oriental, Central",zh:"文華東方酒店 · 中環"}, votes:7392, live:false},
+  {id:"v3", emoji:"💆", name:"Plateau Spa", area:{th:"แกรนด์ ไฮแอท",en:"Grand Hyatt, Wan Chai",zh:"君悅酒店 · 灣仔"}, votes:5604, live:true,
+   mapsUrl:"https://www.google.com/maps/search/?api=1&query=Plateau+Spa+Grand+Hyatt+Hong+Kong"},
+  {id:"v4", emoji:"🪷", name:"Chuan Spa", area:{th:"แลงแฮม",en:"Langham Place, Mong Kok",zh:"朗豪酒店 · 旺角"}, votes:4128, live:false},
+  {id:"v5", emoji:"🧘", name:"Pure Yoga", area:{th:"จิมซาจุ่ย",en:"The ONE, Tsim Sha Tsui",zh:"The ONE · 尖沙咀"}, votes:3471, live:true,
+   mapsUrl:"https://www.google.com/maps/search/?api=1&query=Pure+Yoga+The+ONE+Hong+Kong"},
+  {id:"v6", emoji:"✋", name:"Sense of Touch", area:{th:"โซโห",en:"SoHo, Central",zh:"蘇豪 · 中環"}, votes:1915, live:false}
+];
+const userVoted = new Set();
+
+function lastThree(n){return String(n).padStart(3,"0").slice(-3);}
+
+function renderVoteGrid(){
+  const grid = document.getElementById("voteGrid"); if(!grid) return;
+  grid.innerHTML = "";
+  const langKey = lang==="th"?"th":(lang==="zh-TW"?"zh":"en");
+  const T = I18N[lang]||I18N["zh-TW"];
+  voteVenues.forEach(v=>{
+    const isVoted = userVoted.has(v.id);
+    const card = document.createElement("div");
+    card.className = "vote-card" + (v.live?" live":"") + (isVoted?" voted":"");
+    if(v.live){
+      card.innerHTML = `
+        <div class="vote-emoji">${v.emoji}</div>
+        <div class="vote-info">
+          <h5>${v.name} <span class="live-pill">✨ ${T.v_live||"Live"}</span></h5>
+          <div class="area">${v.area[langKey]||v.area.en}</div>
+          <div class="live-msg">${T.v_live_msg||"Booking is open."}</div>
+        </div>
+        <a class="vote-btn" href="${v.mapsUrl}" target="_blank" rel="noopener">📍 ${T.v_book_maps||"Book on Maps"}</a>
+      `;
+    } else {
+      card.innerHTML = `
+        <div class="vote-emoji">${v.emoji}</div>
+        <div class="vote-info">
+          <h5>${v.name}</h5>
+          <div class="area">${v.area[langKey]||v.area.en}</div>
+          <div class="vote-count">${T.v_count_label||"votes ending"} <span class="digits">…${lastThree(v.votes)}</span></div>
+        </div>
+        <button class="vote-btn" ${isVoted?'disabled':''} onclick="castVote('${v.id}')">
+          ${isVoted ? "✓ "+(T.v_voted||"Voted") : (T.v_vote||"Vote")}
+        </button>
+      `;
+    }
+    grid.appendChild(card);
+  });
+}
+
+function castVote(id){
+  if(userVoted.has(id)) return;
+  const v = voteVenues.find(x=>x.id===id); if(!v) return;
+  v.votes += 1;
+  userVoted.add(id);
+  renderVoteGrid();
+  showVoteToast(v.name);
+  setTimeout(openVoteModal, 700);
+}
+
+function castCustomVote(){
+  const input = document.getElementById("voteInput");
+  const name = (input.value||"").trim();
+  if(!name){ input.focus(); return; }
+  const newId = "vc"+(voteVenues.length+1);
+  voteVenues.push({
+    id:newId, emoji:"✨", name:name,
+    area:{th:"ลูกค้าเสนอ",en:"Customer suggested",zh:"顧客提名"},
+    votes: Math.floor(Math.random()*40)+1, live:false
+  });
+  userVoted.add(newId);
+  input.value="";
+  renderVoteGrid();
+  showVoteToast(name);
+  setTimeout(openVoteModal, 700);
+}
+
+/* ===== Post-vote modal (agentgita iframe) ===== */
+function openVoteModal(){
+  const modal = document.getElementById("voteModal");
+  const iframe = document.getElementById("voteModalIframe");
+  const fallback = document.getElementById("voteModalFallback");
+  if(!modal||!iframe) return;
+  fallback.classList.remove("show");
+  iframe.src = "https://agentgita.com/";
+  modal.classList.add("show");
+  document.body.style.overflow = "hidden";
+  let loaded = false;
+  iframe.onload = function(){ loaded = true; };
+  setTimeout(()=>{ if(!loaded) fallback.classList.add("show"); }, 4500);
+}
+function closeVoteModal(){
+  const modal = document.getElementById("voteModal");
+  const iframe = document.getElementById("voteModalIframe");
+  if(!modal) return;
+  modal.classList.remove("show");
+  if(iframe) iframe.src = "about:blank";
+  document.body.style.overflow = "";
+}
+document.addEventListener("click", e=>{
+  if(e.target && e.target.id === "voteModal") closeVoteModal();
+});
+document.addEventListener("keydown", e=>{
+  if(e.key === "Escape") closeVoteModal();
+});
+
+function showVoteToast(name){
+  const T = I18N[lang]||I18N["zh-TW"];
+  const old = document.querySelector(".vote-toast"); if(old) old.remove();
+  const toast = document.createElement("div");
+  toast.className = "vote-toast";
+  toast.innerHTML = `
+    <div class="toast-check">✓</div>
+    <div>
+      <strong>${name}</strong> — ${T.v_toast_main||"vote registered"}
+      <small>${T.v_toast_sub||"Anonymous · last 3 digits only"}</small>
+    </div>
+  `;
+  document.body.appendChild(toast);
+  requestAnimationFrame(()=>toast.classList.add("show"));
+  setTimeout(()=>{toast.classList.remove("show"); setTimeout(()=>toast.remove(),350);}, 3800);
+}
+
+const _origApplyLang = applyLang;
+applyLang = function(l){
+  _origApplyLang(l);
+  const input = document.getElementById("voteInput");
+  if(input && I18N[l] && I18N[l].v_search_p) input.placeholder = I18N[l].v_search_p;
+  renderVoteGrid();
+};
+
+applyLang("zh-TW");
+buildDates();
+renderVoteGrid();
+</script>
+</body>
+</html>
