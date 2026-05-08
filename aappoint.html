@@ -172,25 +172,34 @@ h1 .underline{background:linear-gradient(transparent 62%, rgba(255,214,107,.7) 6
 .venue-pill{background:var(--teal-soft);color:var(--teal);font-size:12px;font-weight:600;padding:4px 10px;border-radius:8px;}
 .venue-pill.api{background:var(--pink-soft);color:var(--pink);}
 .places-attr{font-size:11px;color:var(--muted);margin-top:8px;display:flex;align-items:center;gap:6px;}
-.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;}
-.book-card{border:1px solid var(--line);border-radius:14px;padding:18px;}
-.book-card h5{margin:0 0 12px;font-size:14px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;}
-.dates{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-.date-btn{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:10px 6px;text-align:center;cursor:pointer;transition:all .15s;}
-.date-btn .dow{font-size:11px;color:var(--muted);font-weight:600;}
-.date-btn .day{font-size:18px;font-weight:800;color:var(--ink);}
-.date-btn:hover{border-color:var(--pink);}
-.date-btn.on{background:var(--pink);border-color:var(--pink);}
-.date-btn.on .dow,.date-btn.on .day{color:#fff;}
-.times{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
-.time-btn{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:10px;font-weight:600;font-size:13.5px;cursor:pointer;transition:all .15s;}
-.time-btn:hover{border-color:var(--pink);color:var(--pink);}
-.time-btn.on{background:var(--ink);color:#fff;border-color:var(--ink);}
-.time-btn.full{opacity:.4;cursor:not-allowed;text-decoration:line-through;}
+/* Google Reserve-style booking picker */
+.rwg-picker{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;margin-top:0;}
+.rwg-section{padding:16px 20px;border-bottom:1px solid var(--line);}
+.rwg-section:last-child{border-bottom:none;}
+.rwg-label{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:12px;}
+/* Party size */
 .party-row{display:flex;gap:6px;}
-.party-btn{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:10px;font-weight:700;font-size:14px;cursor:pointer;transition:all .15s;}
-.party-btn.on{background:var(--pink);color:#fff;border-color:var(--pink);}
-@media (max-width:800px){.demo-stage{grid-template-columns:1fr;}.demo-rail{padding:20px;}.demo-pane{padding:24px;}.venue-card{grid-template-columns:1fr;}.venue-photo{min-height:140px;}.book-grid{grid-template-columns:1fr;}.row-2{grid-template-columns:1fr;}}
+.party-btn{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:9px 4px;font-weight:700;font-size:14px;cursor:pointer;transition:all .15s;text-align:center;}
+.party-btn:hover{border-color:var(--teal);color:var(--teal);}
+.party-btn.on{background:var(--teal);color:#fff;border-color:var(--teal);}
+/* Date row — horizontal scroll */
+.dates{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none;}
+.dates::-webkit-scrollbar{display:none;}
+.date-btn{flex-shrink:0;width:54px;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:10px 0;text-align:center;cursor:pointer;transition:all .15s;}
+.date-btn .dow{font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
+.date-btn .day{font-size:20px;font-weight:800;color:var(--ink);margin-top:3px;}
+.date-btn:hover{border-color:var(--teal);background:var(--teal-tint);}
+.date-btn.on{background:var(--teal);border-color:var(--teal);}
+.date-btn.on .dow,.date-btn.on .day{color:#fff;}
+/* Time slot grid — Google Reserve style */
+.time-hint{font-size:12.5px;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.time-hint::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--teal-2);flex-shrink:0;}
+.times{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.time-btn{border:1.5px solid var(--teal-2);background:var(--teal-soft);color:var(--teal);border-radius:12px;padding:11px 6px;font-weight:700;font-size:13.5px;cursor:pointer;transition:all .15s;text-align:center;}
+.time-btn:hover{background:var(--teal-2);color:#fff;border-color:var(--teal-2);transform:translateY(-1px);}
+.time-btn.on{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 4px 12px rgba(11,13,26,.18);}
+.time-btn.full{background:#f4f4f8;border-color:var(--line);color:var(--muted);opacity:.5;cursor:not-allowed;text-decoration:line-through;transform:none;}
+@media (max-width:800px){.demo-stage{grid-template-columns:1fr;}.demo-rail{padding:20px;}.demo-pane{padding:24px;}.venue-card{grid-template-columns:1fr;}.venue-photo{min-height:140px;}.times{grid-template-columns:repeat(3,1fr);}.row-2{grid-template-columns:1fr;}}
 .confirm-box{background:linear-gradient(135deg,var(--teal-soft),var(--pink-soft));border-radius:18px;padding:32px;text-align:center;}
 .confirm-check{width:64px;height:64px;background:var(--teal);color:#fff;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:14px;box-shadow:0 12px 24px rgba(20,120,124,.35);}
 .confirm-box h3{margin:0 0 6px;font-size:24px;}
@@ -608,8 +617,8 @@ footer .legal b{color:var(--ink);font-weight:700;}
       <div class="pane" data-pane="3">
         <h3 data-i18n="p3_h">นี่คือสิ่งที่ลูกค้าของคุณเห็น</h3>
         <p class="sub" data-i18n="p3_s">เลือกจำนวนคน วัน และเวลา ลูกค้าก็ทำแบบเดียวกัน — 70% จองเสร็จใน 10 วินาที</p>
-        <div class="venue-card" style="margin-bottom:18px;">
-          <div class="venue-photo" id="vPhoto2" style="min-height:120px;font-size:42px;">🍽</div>
+        <div class="venue-card" style="margin-bottom:16px;">
+          <div class="venue-photo" id="vPhoto2" style="min-height:110px;font-size:42px;">🍽</div>
           <div class="venue-body" style="padding:14px 20px;">
             <h4 id="vTitle2" style="font-size:17px;">Greyhound Café</h4>
             <div class="venue-meta" style="margin:0;font-size:12.5px;">
@@ -617,21 +626,34 @@ footer .legal b{color:var(--ink);font-weight:700;}
             </div>
           </div>
         </div>
-        <div class="book-card" style="margin-bottom:14px;">
-          <h5 data-i18n="party_size">จำนวนคน</h5>
-          <div class="party-row" id="party">
-            <button class="party-btn" data-p="2">2</button>
-            <button class="party-btn on" data-p="4">4</button>
-            <button class="party-btn" data-p="6">6</button>
-            <button class="party-btn" data-p="8">8</button>
-            <button class="party-btn" data-p="10">10+</button>
+
+        <!-- Google Reserve-style picker -->
+        <div class="rwg-picker">
+          <div class="rwg-section">
+            <div class="rwg-label" data-i18n="party_size">จำนวนคน</div>
+            <div class="party-row" id="party">
+              <button class="party-btn" data-p="1">1</button>
+              <button class="party-btn" data-p="2">2</button>
+              <button class="party-btn" data-p="3">3</button>
+              <button class="party-btn on" data-p="4">4</button>
+              <button class="party-btn" data-p="5">5</button>
+              <button class="party-btn" data-p="6">6</button>
+              <button class="party-btn" data-p="8">8</button>
+              <button class="party-btn" data-p="10">10+</button>
+            </div>
+          </div>
+          <div class="rwg-section">
+            <div class="rwg-label" data-i18n="pick_date">เลือกวัน</div>
+            <div class="dates" id="dates"></div>
+          </div>
+          <div class="rwg-section">
+            <div class="rwg-label" data-i18n="pick_timeslot">เลือกเวลาที่เหมาะสม</div>
+            <div class="time-hint" data-i18n="time_avail">สล็อตสีเขียวพร้อมรับจอง</div>
+            <div class="times" id="times"></div>
           </div>
         </div>
-        <div class="book-grid">
-          <div class="book-card"><h5 data-i18n="pick_date">เลือกวัน</h5><div class="dates" id="dates"></div></div>
-          <div class="book-card"><h5 data-i18n="pick_time">เลือกเวลา</h5><div class="times" id="times"></div></div>
-        </div>
-        <div style="display:flex;gap:10px;margin-top:18px;align-items:center;">
+
+        <div style="display:flex;gap:10px;margin-top:16px;align-items:center;">
           <button class="btn btn-primary" id="confirmBtn" disabled style="opacity:.55;cursor:not-allowed;" onclick="goStep(4)"><span data-i18n="btn_book">ยืนยันการจอง</span></button>
           <span style="font-size:13px;color:var(--muted);" id="pickerHint" data-i18n="picker_hint">← เลือกวันและเวลาก่อน</span>
         </div>
@@ -955,7 +977,7 @@ const I18N = {
     pill_api:"นำเข้าจาก Google Places", places_attr:"ข้อมูลจาก Google Places API คุณสามารถแก้ไขได้ทุกอย่างก่อนเปิดใช้งาน",
     btn_continue:"ต่อไป → ดูมุมมองลูกค้า", btn_retry:"ลองร้านอื่น",
     p3_h:"นี่คือสิ่งที่ลูกค้าของคุณเห็น", p3_s:"เลือกจำนวนคน วัน และเวลา ลูกค้าก็ทำแบบเดียวกัน — 70% จองเสร็จใน 10 วินาที",
-    open_now:"เปิดอยู่", party_size:"จำนวนคน", pick_date:"เลือกวัน", pick_time:"เลือกเวลา",
+    open_now:"เปิดอยู่", party_size:"จำนวนคน", pick_date:"เลือกวัน", pick_time:"เลือกเวลา", pick_timeslot:"เลือกเวลาที่เหมาะสม", time_avail:"สล็อตสีเขียว = พร้อมรับจอง",
     btn_book:"ยืนยันการจอง", picker_hint:"← เลือกวันและเวลาก่อน",
     confirm_h:"จองโต๊ะสำเร็จ!",
     confirm_s:"จาก \"หาร้าน\" ถึง \"เจอกันคืนนี้\" ภายใน 8 วินาที — นี่คือประสบการณ์ที่ลูกค้าของคุณจะได้รับ",
@@ -1082,7 +1104,7 @@ const I18N = {
     pill_api:"Auto-imported via Google Places", places_attr:"Profile data via Google Places API. You can edit anything before going live.",
     btn_continue:"Continue → see customer view", btn_retry:"Try a different restaurant",
     p3_h:"This is what your customers see", p3_s:"Pick party size, date, and time. Yours will do the same — 70% finish in under 10 seconds.",
-    open_now:"Open now", party_size:"Party size", pick_date:"Pick a date", pick_time:"Pick a time",
+    open_now:"Open now", party_size:"Party size", pick_date:"Pick a date", pick_time:"Pick a time", pick_timeslot:"Select a time slot", time_avail:"Green = available",
     btn_book:"Confirm booking", picker_hint:"← Pick a date and time first",
     confirm_h:"Booking confirmed!",
     confirm_s:"From \"find a restaurant\" to \"see you tonight\" in 8 seconds. That's the experience your customers get.",
@@ -1209,7 +1231,7 @@ const I18N = {
     pill_api:"透過 Google Places 自動匯入", places_attr:"資料來自 Google Places API。上線前您可編輯任何欄位。",
     btn_continue:"繼續 → 看顧客視角", btn_retry:"換一家試試",
     p3_h:"這是您顧客看到的畫面", p3_s:"選人數、日期和時間。他們做的也一樣 — 70% 的人 10 秒內完成。",
-    open_now:"營業中", party_size:"人數", pick_date:"選日期", pick_time:"選時間",
+    open_now:"營業中", party_size:"人數", pick_date:"選日期", pick_time:"選時間", pick_timeslot:"選擇合適的時間", time_avail:"綠色 = 可預訂",
     btn_book:"確認訂位", picker_hint:"← 請先選日期與時間",
     confirm_h:"訂位成功！",
     confirm_s:"從「找餐廳」到「今晚見」只用 8 秒。這就是您顧客的體驗。",
