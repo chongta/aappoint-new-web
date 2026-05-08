@@ -706,8 +706,8 @@ footer .legal b{color:var(--ink);font-weight:700;}
             <li data-i18n="incl_5">เพียง ฿3,499/ปี (~$100), 0% คอมมิชชั่นการจอง, ยกเลิกเมื่อไรก็ได้</li>
           </ul>
         </div>
-        <button class="btn btn-primary" style="font-size:16px;padding:16px 26px;" onclick="finalCelebrate()">
-          <span data-i18n="btn_finish">เปิดร้านของฉัน (ฟรี)</span>
+        <button class="btn btn-primary" style="font-size:16px;padding:16px 26px;" onclick="document.getElementById('cost').scrollIntoView({behavior:'smooth',block:'start'})">
+          <span data-i18n="btn_finish">เปิดร้านของฉันทันที</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </button>
         <div style="font-size:12.5px;color:var(--muted);margin-top:8px;" data-i18n="claim_disclaim">ไม่ต้องใช้บัตรเครดิต ไม่มีข้อผูกมัด พร้อมใช้งานใน 2 นาที</div>
@@ -993,7 +993,7 @@ const I18N = {
     incl_3:"แจ้งเตือนอัตโนมัติทาง SMS + อีเมล",
     incl_4:"มัดจำกัน no-show (เลือกได้)",
     incl_5:"เพียง ฿3,499/ปี (~$100), 0% คอมมิชชั่นการจอง, ยกเลิกเมื่อไรก็ได้",
-    btn_finish:"เปิดร้านของฉัน (ฟรี)", claim_disclaim:"ไม่ต้องใช้บัตรเครดิต ไม่มีข้อผูกมัด พร้อมใช้งานใน 2 นาที",
+    btn_finish:"เปิดร้านของฉันทันที", claim_disclaim:"ไม่ต้องใช้บัตรเครดิต ไม่มีข้อผูกมัด พร้อมใช้งานใน 2 นาที",
     how_eyebrow:"AAppoint ทำงานยังไง", how_title:"จากคนกินสู่ร้านอาหาร บนแพลตฟอร์มเดียว",
     tab_c:"สำหรับลูกค้า", tab_b:"สำหรับร้าน",
     hc1_t:"ค้นหาตามที่อยากกิน", hc1_d:"\"อาหารญี่ปุ่น ทองหล่อ 19:00 4 คน\" AAppoint แสดงเฉพาะร้านที่มีโต๊ะว่างเวลานั้น",
@@ -1118,7 +1118,7 @@ const I18N = {
     incl_3:"Auto SMS + email reminders",
     incl_4:"No-show prevention with deposits (optional)",
     incl_5:"Just ฿3,499/year (~$100), 0% commission on bookings, cancel anytime",
-    btn_finish:"Publish my restaurant (free)", claim_disclaim:"No credit card. No commitment. Live in 2 minutes.",
+    btn_finish:"Open my restaurant now", claim_disclaim:"No credit card. No commitment. Live in 2 minutes.",
     how_eyebrow:"How AAppoint works", how_title:"From diner to restaurant, on one platform.",
     tab_c:"For diners", tab_b:"For restaurants",
     hc1_t:"Search by what you want", hc1_d:"\"Japanese, Thonglor, 7pm, party of 4.\" AAppoint shows only restaurants with that table actually open.",
@@ -1244,7 +1244,7 @@ const I18N = {
     incl_3:"自動 SMS + 電子郵件提醒",
     incl_4:"訂金防爽約（可選）",
     incl_5:"年費僅 ฿3,499（~$100），訂單 0% 佣金，隨時取消",
-    btn_finish:"發布我的餐廳（免費）", claim_disclaim:"無需信用卡。無綁約。2 分鐘上線。",
+    btn_finish:"立即開通我的餐廳", claim_disclaim:"無需信用卡。無綁約。2 分鐘上線。",
     how_eyebrow:"AAppoint 如何運作", how_title:"從顧客到餐廳，一個平台搞定。",
     tab_c:"給顧客", tab_b:"給餐廳",
     hc1_t:"按需求搜尋", hc1_d:"「日料、通羅、晚上7點、4人」AAppoint 只顯示那個時段真的有桌位的餐廳。",
